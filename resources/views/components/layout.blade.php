@@ -40,10 +40,10 @@
           <div class="hidden sm:ml-6 sm:block">
             <div class="flex space-x-4">
               <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
-              <a href="/" aria-current="page" class="rounded-md bg-gray-900 px-3 py-2 text-sm font-medium text-white">Home</a>
-              <a href="/about" class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">About</a>
-              <a href="/meet-the-team" class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Team</a>
-              <a href="contact" class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Contact</a>
+              <x-nav-link href="/" :active="request() -> is('/')">Home</x-nav-link>
+              <x-nav-link href="/about" :active="request() -> is('about')">About</x-nav-link>
+              <x-nav-link href="/meet-the-team" :active="request() -> is('meet-the-team')">Team</x-nav-link>
+              <x-nav-link href="/contact" :active="request() -> is('contact')">Contact</x-nav-link>
             </div>
           </div>
         </div>
@@ -74,10 +74,10 @@
     <div id="mobile-menu" class="sm:hidden">
       <div class="space-y-1 px-2 pt-2 pb-3">
         <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
-        <a href="/" aria-current="page" class="block rounded-md bg-gray-900 px-3 py-2 text-base font-medium text-white">Home</a>
-        <a href="/about" class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white">About</a>
-        <a href="/meet-the-team" class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Team</a>
-        <a href="/contact" class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Contact</a>
+        <x-nav-link-mob href="/" :active="request() -> is('/')">Home</x-nav-link-mob>
+        <x-nav-link-mob href="/about" :active="request() -> is('about')">About</x-nav-link-mob>
+        <x-nav-link-mob href="/meet-the-team" :active="request() -> is('meet-the-team')">Team</x-nav-link-mob>
+        <x-nav-link-mob href="/contact" :active="request() -> is('contact')">Contact</x-nav-link-mob>
       </div>
     </div>
   </nav>

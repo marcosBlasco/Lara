@@ -41,7 +41,7 @@
             <div class="flex space-x-4">
               <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
               <x-nav-link href="/" :active="request() -> is('/')">Home</x-nav-link>
-              <x-nav-link href="/about" :active="request() -> is('about')">About</x-nav-link>
+              <x-nav-link href="/jobs" :active="request() -> is('jobs')">Jobs</x-nav-link>
               <x-nav-link href="/meet-the-team" :active="request() -> is('meet-the-team')">Team</x-nav-link>
               <x-nav-link href="/contact" :active="request() -> is('contact')">Contact</x-nav-link>
             </div>
@@ -75,7 +75,7 @@
       <div class="space-y-1 px-2 pt-2 pb-3">
         <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
         <x-nav-link-mob href="/" :active="request() -> is('/')">Home</x-nav-link-mob>
-        <x-nav-link-mob href="/about" :active="request() -> is('about')">About</x-nav-link-mob>
+        <x-nav-link-mob href="/jobs" :active="request() -> is('jobs')">Jobs</x-nav-link-mob>
         <x-nav-link-mob href="/meet-the-team" :active="request() -> is('meet-the-team')">Team</x-nav-link-mob>
         <x-nav-link-mob href="/contact" :active="request() -> is('contact')">Contact</x-nav-link-mob>
       </div>

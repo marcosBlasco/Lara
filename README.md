@@ -7,6 +7,23 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
+## Topics covered
+
+- Routing en Laravel (básico y avanzado)
+- Controllers y Views con Blade
+- Layouts y componentes reutilizables
+- Integración de TailwindCSS
+- Envío de datos a vistas y parámetros de rutas
+- Autoloading y namespaces
+- Modelos y ORM Eloquent
+- Migraciones y versionado de base de datos
+- Seeders para datos de prueba
+- CRUD completo (crear, leer, editar y eliminar recursos)
+- Formularios y protección CSRF
+- Validación de datos de entrada
+- Paginación de resultados
+
+
 ## About Laravel
 
 Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:

@@ -106,8 +106,8 @@
             <img src="https://avatars.githubusercontent.com/u/31779680?v=4" alt="" class="size-10 rounded-full outline -outline-offset-1 outline-white/10" />
           </div>
           <div class="ml-3">
-            <div class="text-base/5 font-medium text-white">Tom Cook</div>
-            <div class="text-sm font-medium text-gray-400">tom@example.com</div>
+            <div class="text-base/5 font-medium text-white">Marcos Blasco</div>
+            <div class="text-sm font-medium text-gray-400">marcos.ielect@gmail.com</div>
           </div>
           <button type="button" class="relative ml-auto shrink-0 rounded-full p-1 text-gray-400 hover:text-white focus:outline-2 focus:outline-offset-2 focus:outline-indigo-500">
             <span class="absolute -inset-1.5"></span>

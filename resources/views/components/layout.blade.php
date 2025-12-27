@@ -21,7 +21,8 @@
     </head>
     <body class="font-sans antialiased dark:bg-black dark:text-white/50">
     <!-- Include this script tag or install `@tailwindplus/elements` via npm: -->
-<!-- <script src="https://cdn.jsdelivr.net/npm/@tailwindplus/elements@1" type="module"></script> -->
+<script src="https://cdn.jsdelivr.net/npm/@tailwindplus/elements@1" type="module"></script>
+
 <!--
   This example requires updating your template:
 
@@ -42,10 +43,10 @@
             <div class="ml-10 flex items-baseline space-x-4">
               <!-- Current: "bg-gray-950/50 text-white", Default: "text-gray-300 hover:bg-white/5 hover:text-white" -->
               <!-- <a href="/" aria-current="page" class="rounded-md bg-gray-950/50 px-3 py-2 text-sm font-medium text-white">Home</a> -->
-              <x-nav-link href="/" aria-current="page" id="lalala" :active="request() -> is('/')">Home</x-nav-link>
-              <x-nav-link href="/jobs" aria-current="page" id="lalala" :active="request() -> is('/jobs')">Jobs</x-nav-link>
-              <x-nav-link href="/about" aria-current="page" id="lalala" :active="request() -> is('about')">About</x-nav-link>
-              <x-nav-link href="/contact" aria-current="page" id="lalala" :active="request() -> is('contact')">Contact</x-nav-link>
+              <x-nav-link href="/" aria-current="page" id="homelink" :active="request() -> is('/')">Home</x-nav-link>
+              <x-nav-link href="/jobs" aria-current="page" id="jobslink" :active="request() -> is('jobs')">Jobs</x-nav-link>
+              <x-nav-link href="/about" aria-current="page" id="aboutlink" :active="request() -> is('about')">About</x-nav-link>
+              <x-nav-link href="/contact" aria-current="page" id="contactlink" :active="request() -> is('contact')">Contact</x-nav-link>
             </div>
           </div>
         </div>
@@ -77,27 +78,27 @@
         </div>
         <div class="-mr-2 flex md:hidden">
           <!-- Mobile menu button -->
-          <button type="button" command="--toggle" commandfor="mobile-menu" class="relative inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-white/5 hover:text-white focus:outline-2 focus:outline-offset-2 focus:outline-indigo-500">
+          <button type="button" command="--toggle" commandfor="mobile-menu" for="mobile-menu" class="relative inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-white/5 hover:text-white focus:outline-2 focus:outline-offset-2 focus:outline-indigo-500">
             <span class="absolute -inset-0.5"></span>
             <span class="sr-only">Open main menu</span>
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" data-slot="icon" aria-hidden="true" class="size-6 in-aria-expanded:hidden">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" data-slot="icon" aria-hidden="true" class="size-6 not-in-aria-expanded:hidden">
               <path d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" stroke-linecap="round" stroke-linejoin="round" />
             </svg>
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" data-slot="icon" aria-hidden="true" class="size-6 not-in-aria-expanded:hidden">
+            <!-- <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" data-slot="icon" aria-hidden="true" class="size-6 in-aria-expanded:hidden">
               <path d="M6 18 18 6M6 6l12 12" stroke-linecap="round" stroke-linejoin="round" />
-            </svg>
+            </svg> -->
           </button>
         </div>
       </div>
     </div>
 
-    <el-disclosure id="mobile-menu" hidden class="block md:hidden">
+    <el-disclosure id="mobile-menu" hidden class="md:hidden">
       <div class="space-y-1 px-2 pt-2 pb-3 sm:px-3">
         <!-- Current: "bg-gray-950/50 text-white", Default: "text-gray-300 hover:bg-white/5 hover:text-white" -->
-        <a href="/" aria-current="page" class="block rounded-md bg-gray-950/50 px-3 py-2 text-base font-medium text-white">Home</a>
-        
-        <a href="/about" class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-white/5 hover:text-white">About</a>
-        <a href="/contact" class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-white/5 hover:text-white">Contact</a>
+        <x-mobile-nav-link href="/" aria-current="page" id="mobile-homelink" :active="request() -> is('/')">Home</x-mobile-nav-link>
+        <x-mobile-nav-link href="/jobs" aria-current="page" id="mobile-homelink" :active="request() -> is('jobs')" >Jobs</x-mobile-nav-link>
+        <x-mobile-nav-link href="/about" aria-current="page" id="mobile-homelink" :active="request() -> is('about')">About</x-mobile-nav-link>
+        <x-mobile-nav-link href="/contact" aria-current="page" id="mobile-homelink" :active="request() -> is('contact')">Contact</x-mobile-nav-link>
       </div>
       <div class="border-t border-white/10 pt-4 pb-3">
         <div class="flex items-center px-5">

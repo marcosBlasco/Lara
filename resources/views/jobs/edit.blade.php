@@ -13,7 +13,7 @@
 
             <div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
                 <div class="sm:col-span-4">
-                <label for="title" class="block text-sm/6 font-medium text-white">Title</label>
+                <label for="title" class="block text-sm/6 font-medium text-black dark:text-white">Title</label>
                 <div class="mt-2">
                     <div class="flex items-center rounded-md bg-gray-900 pl-3 outline-1 -outline-offset-1 outline-white/10 focus-within:outline-2 focus-within:-outline-offset-2 focus-within:outline-indigo-500">
                     <input 
@@ -30,7 +30,7 @@
                 </div>
                 </div>
                 <div class="sm:col-span-4">
-                <label for="salary" class="block text-sm/6 font-medium text-white">Salary</label>
+                <label for="salary" class="block text-sm/6 font-medium text-black dark:text-white">Salary</label>
                 <div class="mt-2">
                     <div class="flex items-center rounded-md bg-gray-900 pl-3 outline-1 -outline-offset-1 outline-white/10 focus-within:outline-2 focus-within:-outline-offset-2 focus-within:outline-indigo-500">
                     <input 
@@ -60,7 +60,8 @@
                 <button form="delete-form" class="text-red-500 text-sm font-bold">Delete</button>
             </div>
             <div>
-                <a href="/jobs/{{ $job->id }}"><button type="button" class="text-sm/6 font-semibold text-white">Cancel</button></a>
+                <a href="/jobs/{{ $job->id }}"><button type="button" class="text-sm font-semibold text-gray-700 hover:text-gray-900
+                   dark:text-gray-300 dark:hover:text-white">Cancel</button></a>
                 <button type="submit" class="rounded-md bg-indigo-500 px-3 py-2 text-sm font-semibold text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500">
                     Update
                 </button>

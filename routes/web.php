@@ -4,11 +4,6 @@ use Illuminate\Support\Facades\Route;
 use \Illuminate\Support\Arr;
 use App\Models\Job;
 
-// Route::get('/', function () {
-//     return view('home');
-// });
-
-
 Route::get('/', function () {
     return redirect('/en');
 });
@@ -20,9 +15,6 @@ Route::get('/es', function () {
 Route::get('/en', function () {
     return view('home-en');
 });
-
-
-
 
 
 //index
@@ -56,21 +48,17 @@ Route::post('/jobs', function () {
 });
 
 //show
-Route::get('/jobs/{id}', function ($id) {
-
-    $job = Job::find($id);    
+Route::get('/jobs/{job}', function (Job $job) {
     return view('jobs.show', ['job' => $job]);
 });
 
 //edit
-Route::get('/jobs/{id}/edit', function ($id) {
-
-    $job = Job::find($id);    
+Route::get('/jobs/{job}/edit', function (Job $job) {   
     return view('jobs.edit', ['job' => $job]);
 });
 
 //update
-Route::patch('/jobs/{id}', function ($id) {
+Route::patch('/jobs/{job}', function (Job $job) {
 
     //validate
     request()->validate([
@@ -79,7 +67,7 @@ Route::patch('/jobs/{id}', function ($id) {
     ]);
     //authorize  (I'm gonna solve this later...)
     //update the job
-    $job = Job::findOrFail($id);
+    // $job = Job::findOrFail($id); as we are using Route Model Binding this line is not necesary
     // $job->title = request('title');
     // $job->salary = request('salary');
      
@@ -95,11 +83,9 @@ Route::patch('/jobs/{id}', function ($id) {
 });
 
 //destroy
-Route::delete('/jobs/{id}', function ($id) {
-    $job = Job::findOrFail($id);
-
+Route::delete('/jobs/{job}', function (Job $job) {
+    // $job = Job::findOrFail($id);
     $job->delete();
-
     return redirect('/jobs');
 });
 

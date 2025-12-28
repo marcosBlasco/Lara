@@ -47,6 +47,16 @@
               <x-nav-link href="/jobs" aria-current="page" id="jobslink" :active="request() -> is('jobs')">Jobs</x-nav-link>
               <x-nav-link href="/about" aria-current="page" id="aboutlink" :active="request() -> is('about')">About</x-nav-link>
               <x-nav-link href="/contact" aria-current="page" id="contactlink" :active="request() -> is('contact')">Contact</x-nav-link>
+              @if(request()->is('/') || request()->is('es') || request()->is('en'))
+                  <div class="flex items-center gap-3">
+                      <a href="/es" title="Español">
+                          🇦🇷
+                      </a>
+                      <a href="/en" title="English">
+                          🇬🇧
+                      </a>
+                  </div>
+              @endif
             </div>
           </div>
         </div>
@@ -99,6 +109,18 @@
         <x-mobile-nav-link href="/jobs" aria-current="page" id="mobile-homelink" :active="request() -> is('jobs')" >Jobs</x-mobile-nav-link>
         <x-mobile-nav-link href="/about" aria-current="page" id="mobile-homelink" :active="request() -> is('about')">About</x-mobile-nav-link>
         <x-mobile-nav-link href="/contact" aria-current="page" id="mobile-homelink" :active="request() -> is('contact')">Contact</x-mobile-nav-link>
+      
+        @if(request()->is('/') || request()->is('es') || request()->is('en'))
+            <div class="flex items-center gap-3">
+                <a href="/es" title="Español">
+                    🇦🇷
+                </a>
+                <a href="/en" title="English">
+                    🇬🇧
+                </a>
+            </div>
+        @endif
+      
       </div>
       <div class="border-t border-white/10 pt-4 pb-3">
         <div class="flex items-center px-5">
@@ -129,11 +151,6 @@
   <header class="relative bg-gray-800 after:pointer-events-none after:absolute after:inset-x-0 after:inset-y-0 after:border-y after:border-white/10">
     <div class="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8 sm:flex sm:justify-between">
       <h1 class="text-3xl font-bold tracking-tight text-white">{{ $heading }}</h1>
-      <nav class="flex justify-end gap-4">
-            <x-button href="/es" class="text-sm hover:underline">🇪🇸</x-button>
-            <x-button href="/en" class="text-sm hover:underline">🇬🇧</x-button>
-      </nav>
-
       <x-button href="/jobs/create">Create a new Job</x-button>
     </div>
   </header>

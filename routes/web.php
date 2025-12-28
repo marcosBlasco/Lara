@@ -2,19 +2,11 @@
 
 use App\Http\Controllers\JobController;
 use Illuminate\Support\Facades\Route;
-use \Illuminate\Support\Arr;
-use App\Models\Job;
 
-Route::get('/', function () {
-    return redirect('/en');
-});
-Route::get('/es', function () {
-    return view('home-es');
-});
-Route::get('/en', function () {
-    return view('home-en');
-});
-
+//home
+Route::redirect('/', '/en');
+Route::view('/es', 'home-es');
+Route::view('/en', 'home-en');
 
 //index
 Route::get('/jobs', [JobController::class, 'index']);
@@ -31,11 +23,5 @@ Route::patch('/jobs/{job}', [JobController::class, 'update']);
 //destroy
 Route::delete('/jobs/{job}', [JobController::class, 'destroy']);
 
-
-Route::get('/about', function () {
-    return view('about');
-});
-
-Route::get('/contact', function () {
-    return view('contact');
-});
+Route::view('/about', 'about');
+Route::view('/contact', 'contact');

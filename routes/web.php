@@ -4,9 +4,26 @@ use Illuminate\Support\Facades\Route;
 use \Illuminate\Support\Arr;
 use App\Models\Job;
 
+// Route::get('/', function () {
+//     return view('home');
+// });
+
+
 Route::get('/', function () {
-    return view('home');
+    return redirect('/en');
 });
+
+Route::get('/es', function () {
+    return view('home-es');
+});
+
+Route::get('/en', function () {
+    return view('home-en');
+});
+
+
+
+
 
 //index
 Route::get('/jobs', function () {

@@ -43,7 +43,7 @@
             <div class="ml-10 flex items-baseline space-x-4">
               <!-- Current: "bg-gray-950/50 text-white", Default: "text-gray-300 hover:bg-white/5 hover:text-white" -->
               <!-- <a href="/" aria-current="page" class="rounded-md bg-gray-950/50 px-3 py-2 text-sm font-medium text-white">Home</a> -->
-              <x-nav-link href="/" aria-current="page" id="homelink" :active="request() -> is('/')">Home</x-nav-link>
+              <x-nav-link href="/" aria-current="page" id="homelink" :active="request() -> is('/') || request() -> is('en') || request() -> is('es')">Home</x-nav-link>
               <x-nav-link href="/jobs" aria-current="page" id="jobslink" :active="request() -> is('jobs')">Jobs</x-nav-link>
               <x-nav-link href="/about" aria-current="page" id="aboutlink" :active="request() -> is('about')">About</x-nav-link>
               <x-nav-link href="/contact" aria-current="page" id="contactlink" :active="request() -> is('contact')">Contact</x-nav-link>
@@ -105,7 +105,7 @@
     <el-disclosure id="mobile-menu" hidden class="md:hidden">
       <div class="space-y-1 px-2 pt-2 pb-3 sm:px-3">
         <!-- Current: "bg-gray-950/50 text-white", Default: "text-gray-300 hover:bg-white/5 hover:text-white" -->
-        <x-mobile-nav-link href="/" aria-current="page" id="mobile-homelink" :active="request() -> is('/')">Home</x-mobile-nav-link>
+        <x-mobile-nav-link href="/" aria-current="page" id="mobile-homelink" :active="request() -> is('/') || request() -> is('en') || request() -> is('es')">Home</x-mobile-nav-link>
         <x-mobile-nav-link href="/jobs" aria-current="page" id="mobile-homelink" :active="request() -> is('jobs')" >Jobs</x-mobile-nav-link>
         <x-mobile-nav-link href="/about" aria-current="page" id="mobile-homelink" :active="request() -> is('about')">About</x-mobile-nav-link>
         <x-mobile-nav-link href="/contact" aria-current="page" id="mobile-homelink" :active="request() -> is('contact')">Contact</x-mobile-nav-link>

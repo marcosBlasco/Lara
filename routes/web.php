@@ -24,4 +24,4 @@ Route::patch('/jobs/{job}', [JobController::class, 'update']);
 Route::delete('/jobs/{job}', [JobController::class, 'destroy']);
 
 Route::view('/about', 'about');
-Route::view('/contact', 'contact');
+Route::view('/contact', 'contact'); 

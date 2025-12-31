@@ -1,8 +1,8 @@
 <x-layout>
     <x-slot:heading>
-        Job create page
+        Login page
     </x-slot:heading>
-    <form method="POST" action="/jobs">
+    <form method="POST" action="">
         @csrf
         <div class="space-y-12">
             <div class="border-b border-white/10 pb-12">
@@ -10,20 +10,20 @@
             <p class="mt-1 text-sm/6 text-gray-400">We just need some details here.</p>
                 <div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
                     <x-form-field>
-                        <x-form-label for="title">Title</x-form-label>
+                        <x-form-label for="email">Email</x-form-label>
                         <div class="mt-2">
-                            <x-form-input id="title" type="text" name="title" placeholder="Team Leader" required />
-                            <x-form-error name='title'/>
+                            <x-form-input id="email" type="email" name="email" placeholder="jhon.doe@mail.com" required/>
+                            <x-form-error name='email'/>
                         </div>
                     </x-form-field>
 
                     <x-form-field>
-                        <x-form-label for="salary">Salary</x-form-label>
+                        <x-form-label for="password">Password</x-form-label>
                         <div class="mt-2">
-                            <x-form-input id="salary" type="text" name="salary" placeholder="$50.000 per year" required/>
-                            <x-form-error name='salary'/>
+                            <x-form-input id="password" type="password" name="password" required/>
+                            <x-form-error name='password'/>
                         </div>
-                    </x-form-field>
+                    </x-form-field>    
                 </div>
             </div>
 
@@ -40,7 +40,7 @@
                    Cancel
                 </button>
             </a>
-            <x-form-button>Save</x-form-button>
+            <x-form-button>Log In</x-form-button>
         </div>
     </form>
 </x-layout>

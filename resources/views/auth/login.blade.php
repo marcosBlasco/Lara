@@ -2,7 +2,7 @@
     <x-slot:heading>
         Login page
     </x-slot:heading>
-    <form method="POST" action="">
+    <form method="POST" action="/login">
         @csrf
         <div class="space-y-12">
             <div class="border-b border-white/10 pb-12">
@@ -12,7 +12,7 @@
                     <x-form-field>
                         <x-form-label for="email">Email</x-form-label>
                         <div class="mt-2">
-                            <x-form-input id="email" type="email" name="email" placeholder="jhon.doe@mail.com" required/>
+                            <x-form-input id="email" type="email" name="email" :value="old('email')" placeholder="jhon.doe@mail.com" required/>
                             <x-form-error name='email'/>
                         </div>
                     </x-form-field>

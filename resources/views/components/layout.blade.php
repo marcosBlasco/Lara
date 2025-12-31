@@ -66,6 +66,13 @@
             <x-nav-link href="/login" aria-current="page" id="loginlink" :active="request() -> is('login')">Log In</x-nav-link>
             <x-nav-link href="/register" aria-current="page" id="registerlink" :active="request() -> is('register')">Register</x-nav-link>  
           @endguest
+
+          @auth
+            <form action="/logout" method="POST">
+              @csrf
+              <x-form-button>Log Out</x-form-button>
+            </form>
+          @endauth
           <!-- <button type="button" class="relative rounded-full p-1 text-gray-400 hover:text-white focus:outline-2 focus:outline-offset-2 focus:outline-indigo-500">
               <span class="absolute -inset-1.5"></span>
               <span class="sr-only">View notifications</span>
@@ -132,7 +139,12 @@
           <x-mobile-nav-link href="/login" aria-current="page" id="mobile-loginlink" :active="request() -> is('login')">Log In</x-mobile-nav-link>
           <x-mobile-nav-link href="/register" aria-current="page" id="mobile-registerlink" :active="request() -> is('register')">Register</x-mobile-nav-link>
         @endguest
-        
+        @auth
+          <form action="/logout" method="POST">
+            @csrf
+            <x-form-button>Log Out</x-form-button>
+          </form>
+        @endauth
         
         
         <!-- <div class="shrink-0">

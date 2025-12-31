@@ -62,21 +62,25 @@
         </div>
         <div class="hidden md:block">
           <div class="ml-4 flex items-center md:ml-6">
-            <button type="button" class="relative rounded-full p-1 text-gray-400 hover:text-white focus:outline-2 focus:outline-offset-2 focus:outline-indigo-500">
+          @guest
+            <x-nav-link href="/login" aria-current="page" id="loginlink" :active="request() -> is('login')">Log In</x-nav-link>
+            <x-nav-link href="/register" aria-current="page" id="registerlink" :active="request() -> is('register')">Register</x-nav-link>  
+          @endguest
+          <!-- <button type="button" class="relative rounded-full p-1 text-gray-400 hover:text-white focus:outline-2 focus:outline-offset-2 focus:outline-indigo-500">
               <span class="absolute -inset-1.5"></span>
               <span class="sr-only">View notifications</span>
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" data-slot="icon" aria-hidden="true" class="size-6">
                 <path d="M14.857 17.082a23.848 23.848 0 0 0 5.454-1.31A8.967 8.967 0 0 1 18 9.75V9A6 6 0 0 0 6 9v.75a8.967 8.967 0 0 1-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 0 1-5.714 0m5.714 0a3 3 0 1 1-5.714 0" stroke-linecap="round" stroke-linejoin="round" />
               </svg>
-            </button>
+            </button> -->
 
             <!-- Profile dropdown -->
-            <el-dropdown class="relative ml-3">
+            <!-- <el-dropdown class="relative ml-3">
               <button class="relative flex max-w-xs items-center rounded-full focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500">
                 <span class="absolute -inset-1.5"></span>
                 <span class="sr-only">Open user menu</span>
                 <img src="https://avatars.githubusercontent.com/u/31779680?v=4" alt="" class="size-8 rounded-full outline -outline-offset-1 outline-white/10" />
-              </button>
+              </button> -->
 
               <!-- <el-menu anchor="bottom end" popover class="w-48 origin-top-right rounded-md bg-gray-800 py-1 outline-1 -outline-offset-1 outline-white/10 transition transition-discrete [--anchor-gap:--spacing(2)] data-closed:scale-95 data-closed:transform data-closed:opacity-0 data-enter:duration-100 data-enter:ease-out data-leave:duration-75 data-leave:ease-in">
                 <a href="#" class="block px-4 py-2 text-sm text-gray-300 focus:bg-white/5 focus:outline-hidden">Your profile</a>
@@ -124,7 +128,14 @@
       </div>
       <div class="border-t border-white/10 pt-4 pb-3">
         <div class="flex items-center px-5">
-          <div class="shrink-0">
+        @guest
+          <x-mobile-nav-link href="/login" aria-current="page" id="mobile-loginlink" :active="request() -> is('login')">Log In</x-mobile-nav-link>
+          <x-mobile-nav-link href="/register" aria-current="page" id="mobile-registerlink" :active="request() -> is('register')">Register</x-mobile-nav-link>
+        @endguest
+        
+        
+        
+        <!-- <div class="shrink-0">
             <img src="https://avatars.githubusercontent.com/u/31779680?v=4" alt="" class="size-10 rounded-full outline -outline-offset-1 outline-white/10" />
           </div>
           <div class="ml-3">
@@ -137,7 +148,7 @@
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" data-slot="icon" aria-hidden="true" class="size-6">
               <path d="M14.857 17.082a23.848 23.848 0 0 0 5.454-1.31A8.967 8.967 0 0 1 18 9.75V9A6 6 0 0 0 6 9v.75a8.967 8.967 0 0 1-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 0 1-5.714 0m5.714 0a3 3 0 1 1-5.714 0" stroke-linecap="round" stroke-linejoin="round" />
             </svg>
-          </button>
+          </button> -->
         </div>
         <!-- <div class="mt-3 space-y-1 px-2">
           <a href="#" class="block rounded-md px-3 py-2 text-base font-medium text-gray-400 hover:bg-white/5 hover:text-white">Your profile</a>

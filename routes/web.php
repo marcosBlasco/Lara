@@ -22,11 +22,17 @@ Route::post('/jobs', [JobController::class, 'store'])->middleware('auth');
 //show
 Route::get('/jobs/{job}', [JobController::class, 'show']);
 //edit
-Route::get('/jobs/{job}/edit', [JobController::class, 'edit'])->middleware('auth', 'can:edit-job, job');
+Route::get('/jobs/{job}/edit', [JobController::class, 'edit'])
+        ->middleware('auth')
+        ->middleware('can:edit-job,job');
 //update
-Route::patch('/jobs/{job}', [JobController::class, 'update']);
+Route::patch('/jobs/{job}', [JobController::class, 'update'])
+        ->middleware('auth')
+        ->middleware('can:edit-job,job');
 //destroy
-Route::delete('/jobs/{job}', [JobController::class, 'destroy']);
+Route::delete('/jobs/{job}', [JobController::class, 'destroy'])
+        ->middleware('auth')
+        ->middleware('can:edit-job,job');
 
 
 

@@ -22,6 +22,12 @@
 - Formularios y protección CSRF
 - Validación de datos de entrada
 - Paginación de resultados
+- Relacionado con autorización
+    - Inline authorization
+    - Gates
+    - Middleware authorization
+    - Policies
+
 
 
 ## About Laravel

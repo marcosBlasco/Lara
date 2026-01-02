@@ -24,7 +24,7 @@ Route::get('/jobs/{job}', [JobController::class, 'show']);
 //edit
 Route::get('/jobs/{job}/edit', [JobController::class, 'edit'])
         ->middleware('auth')
-        ->middleware('can:edit-job,job');
+        ->can('edit-job','job');
 //update
 Route::patch('/jobs/{job}', [JobController::class, 'update'])
         ->middleware('auth')

@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Job;
+use App\Models\Employer;
+use Illuminate\Support\Facades\Auth;
+
 class JobController extends Controller
 {
     public function index(){    
@@ -36,6 +39,13 @@ class JobController extends Controller
     }
 
     public function edit(Job $job){
+        if (Auth::guest()){
+            return redirect('/login');
+        }
+        if ($job->employer->user->isnot(Auth::user())){
+            abort(403);
+        }
+        
         return view('jobs.edit', ['job' => $job]);
     }
 

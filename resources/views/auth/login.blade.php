@@ -6,8 +6,8 @@
         @csrf
         <div class="space-y-12">
             <div class="border-b border-white/10 pb-12">
-            <h2 class="text-base/7 font-semibold text-white">Create a new job</h2>
-            <p class="mt-1 text-sm/6 text-gray-400">We just need some details here.</p>
+            <h2 class="text-base/7 font-semibold text-white">Please enter your credentils</h2>
+            <p class="mt-1 text-sm/6 text-gray-400">You have to log in in order to create, edit or delete jobs.</p>
                 <div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
                     <x-form-field>
                         <x-form-label for="email">Email</x-form-label>

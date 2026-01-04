@@ -26,12 +26,17 @@ class JobController extends Controller
     public function store(){
         request()->validate([
             'title' => ['required', 'min:3'],
-            'salary' => ['required']
+            'salary' => ['required'],
+            'published_from' => ['required', 'date'],
+            'published_until' => ['nullable', 'date', 'after:published_from'],
         ]);
         Job::create([
             'title' => request('title'),
             'salary' => request('salary'),
-            'employer_id' => 1
+            'employer_id' => Auth::user()->id,
+            'published_from' => request('published_from'),
+            'published_until' => request('published_until'),
+            
         ]);
         return redirect('/jobs');
     }
@@ -47,17 +52,6 @@ class JobController extends Controller
 
 
     public function edit(Job $job){
-        
-        // if(Auth::user()->can('edit-job', $job)){
-        //     dd('hola');
-        // }
-        
-        // if (Auth::guest()){
-        //     return redirect('/login');
-        // }
-
-        // Gate::authorize('edit-job', $job);
-        
         return view('jobs.edit', ['job' => $job]);
     }
 
@@ -69,9 +63,11 @@ class JobController extends Controller
     public function update(Job $job){
         //validate
     request()->validate([
-        'title' => ['required', 'min:3'],
-        'salary' => ['required']
-    ]);
+            'title' => ['required', 'min:3'],
+            'salary' => ['required'],
+            'published_from' => ['required', 'date'],
+            'published_until' => ['nullable', 'date', 'after:published_from'],
+        ]);
     //authorize  (I'm gonna solve this later...)
     //update the job
     // $job = Job::findOrFail($id); as we are using Route Model Binding this line is not necesary
@@ -81,9 +77,12 @@ class JobController extends Controller
 
     $job->update([
         'title' => request('title'),
-        'salary' => request('salary')
-        ]);
+        'salary' => request('salary'),
+        'published_from' => request('published_from'),
+        'published_until' => request('published_until'),
+    ]);
 
+        
         //redirect
         return redirect('/jobs/'.$job->id);
     }

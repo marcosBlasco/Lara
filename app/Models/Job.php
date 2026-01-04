@@ -8,8 +8,14 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 class Job extends Model{
     use HasFactory;
     protected $table = 'job_listings';
-    protected $fillable = ['employer_id', 'title', 'salary'];
+    protected $fillable = ['employer_id', 'title', 'salary', 'published_from', 'published_until'];
     protected $guarded = [];
+
+    protected $casts = [
+    'published_from' => 'datetime',
+    'published_until' => 'datetime',
+];
+    
 
     public function employer()
     {

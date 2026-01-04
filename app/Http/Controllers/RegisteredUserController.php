@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Models\Employer;
 use Illuminate\Support\Facades\Auth;
 
 class RegisteredUserController extends Controller
@@ -18,6 +19,7 @@ class RegisteredUserController extends Controller
             'first_name'    => ['required'],
             'last_name'     => ['required'],
             'email'         => ['required', 'email', 'unique:users', 'max:254'],
+            'company_name'         => ['required', 'min:3'],
             'password' => ['required', 'string', 'min:8', 'confirmed',],
         ]);
         //create the user
@@ -25,6 +27,13 @@ class RegisteredUserController extends Controller
         //login the user
 
         Auth::login($user);
+
+        Employer::create([
+            'name'    => $validated_attributes['company_name'],
+            'user_id' => $user->id,
+        ]);
+        
+
 
         //redirect somewhere
 

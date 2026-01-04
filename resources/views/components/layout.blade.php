@@ -62,17 +62,23 @@
         </div>
         <div class="hidden md:block">
           <div class="ml-4 flex items-center md:ml-6">
-          @guest
-            <x-nav-link href="/login" aria-current="page" id="loginlink" :active="request() -> is('login')">Log In</x-nav-link>
-            <x-nav-link href="/register" aria-current="page" id="registerlink" :active="request() -> is('register')">Register</x-nav-link>  
-          @endguest
 
-          @auth
-            <form action="/logout" method="POST">
-              @csrf
-              <x-form-button>Log Out</x-form-button>
-            </form>
-          @endauth
+            @auth
+              <x-nav-link href="/user"  id="userlink" :active="false">User: {{ request()->user()->first_name }}, {{ request()->user()->last_name }}</x-nav-link>
+              <x-nav-link href="/company"  id="companylink" :active="false">Co.: {{ auth()->user()->employer->name }}</x-nav-link>
+            @endauth
+
+            @guest
+              <x-nav-link href="/login" aria-current="page" id="loginlink" :active="request() -> is('login')">Log In</x-nav-link>
+              <x-nav-link href="/register" aria-current="page" id="registerlink" :active="request() -> is('register')">Register</x-nav-link>  
+            @endguest
+
+            @auth
+              <form action="/logout" method="POST">
+                @csrf
+                <x-form-button>Log Out</x-form-button>
+              </form>
+            @endauth
           <!-- <button type="button" class="relative rounded-full p-1 text-gray-400 hover:text-white focus:outline-2 focus:outline-offset-2 focus:outline-indigo-500">
               <span class="absolute -inset-1.5"></span>
               <span class="sr-only">View notifications</span>
@@ -98,6 +104,10 @@
           </div>
         </div>
         <div class="-mr-2 flex md:hidden">
+          @auth
+            <x-nav-link href="/user"  id="mobile-userlink" :active="false">User: {{ request()->user()->first_name }}, {{ request()->user()->last_name }}</x-nav-link>
+            <x-nav-link href="/company"  id="mobile-companylink" :active="false">Co.: {{ auth()->user()->employer->name }}</x-nav-link>
+          @endauth
           <!-- Mobile menu button -->
           <button type="button" command="--toggle" commandfor="mobile-menu" for="mobile-menu" class="relative inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-white/5 hover:text-white focus:outline-2 focus:outline-offset-2 focus:outline-indigo-500">
             <span class="absolute -inset-0.5"></span>
@@ -173,8 +183,12 @@
 
   <header class="relative bg-gray-800 after:pointer-events-none after:absolute after:inset-x-0 after:inset-y-0 after:border-y after:border-white/10">
     <div class="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8 sm:flex sm:justify-between">
-      <h1 class="text-3xl font-bold tracking-tight text-white">{{ $heading }}</h1>
-      <x-button href="/jobs/create">Create a new Job</x-button>
+      <h1 class="text-3xl font-bold tracking-tight text-white mb-4">{{ $heading }}</h1>
+        @auth
+          @if (request() -> is(['jobs', 'jobs*']))
+            <x-button href="/jobs/create">Create a new Job</x-button>
+          @endif
+        @endauth
     </div>
   </header>
   <main>

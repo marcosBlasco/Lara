@@ -24,6 +24,22 @@
                             <x-form-error name='salary'/>
                         </div>
                     </x-form-field>
+                    <x-form-field>
+                        <x-form-label for="published_from">Published from</x-form-label>
+                        <div class="mt-2">
+                            <x-form-input id="published_from" type="date" name="published_from" required/>
+                            <x-form-error name='published_from'/>
+                        </div>
+                    </x-form-field>
+
+                    <x-form-field>
+                        <x-form-label for="published_until">Published until</x-form-label>
+                        <div class="mt-2">
+                            <x-form-input id="published_until" type="date" name="published_until" required/>
+                            <x-form-error name='published_until'/>
+                        </div>
+                    </x-form-field>
+                    
                 </div>
             </div>
 

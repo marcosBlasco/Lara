@@ -34,6 +34,14 @@
                     </x-form-field>
 
                     <x-form-field>
+                        <x-form-label for="company_name">Company Name</x-form-label>
+                        <div class="mt-2">
+                            <x-form-input id="company_name" placeholder="Company/Organization" type="text" name="company_name" required/>
+                            <x-form-error name='company_name'/>
+                        </div>
+                    </x-form-field>
+
+                    <x-form-field>
                         <x-form-label for="password">Password</x-form-label>
                         <div class="mt-2">
                             <x-form-input id="password" type="password" name="password" required/>

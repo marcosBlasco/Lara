@@ -49,17 +49,18 @@
 
                 <x-form-field>
                 <x-form-label for="title">Description</x-form-label>
-                <div class="mt-2">
-                    <x-form-input 
-                        id="description" 
-                        type="text" 
-                        :value="old('description')" 
-                        name="description" 
-                        placeholder="Work type (full-time/part-time), remote or on-site, role details, required skills" 
-                        required />
-                    <x-form-error name='description'/>
-                </div>
+                    <div class="mt-2">
+                        <x-form-input 
+                            id="description" 
+                            type="text" 
+                            :value="$job->description" 
+                            name="description" 
+                            placeholder="Work type (full-time/part-time), remote or on-site, role details, required skills" 
+                            required />
+                        <x-form-error name='description'/>
+                    </div>
                 </x-form-field>
+                
                 <x-form-field>
                     <x-form-label for="published_from">Published from</x-form-label>
                     <div class="mt-2">

@@ -12,7 +12,12 @@
                     <x-form-field>
                         <x-form-label for="title">Title</x-form-label>
                         <div class="mt-2">
-                            <x-form-input id="title" type="text" name="title" placeholder="Team Leader" required />
+                            <x-form-input 
+                                id="title" 
+                                type="text" 
+                                name="title" 
+                                :value="old('title')" 
+                                placeholder="Team Leader" required />
                             <x-form-error name='title'/>
                         </div>
                     </x-form-field>
@@ -20,14 +25,38 @@
                     <x-form-field>
                         <x-form-label for="salary">Salary</x-form-label>
                         <div class="mt-2">
-                            <x-form-input id="salary" type="text" name="salary" placeholder="$50.000 per year" required/>
+                            <x-form-input 
+                                id="salary" 
+                                type="text" 
+                                :value="old('salary')" 
+                                name="salary" 
+                                placeholder="$50.000 per year" required/>
                             <x-form-error name='salary'/>
                         </div>
                     </x-form-field>
+
+                    <x-form-field>
+                        <x-form-label for="title">Description</x-form-label>
+                        <div class="mt-2">
+                            <x-form-input 
+                                id="description" 
+                                type="text" 
+                                :value="old('description')" 
+                                name="description" 
+                                placeholder="Work type (full-time/part-time), remote or on-site, role details, required skills" 
+                                required />
+                            <x-form-error name='description'/>
+                        </div>
+                    </x-form-field>
+
                     <x-form-field>
                         <x-form-label for="published_from">Published from</x-form-label>
                         <div class="mt-2">
-                            <x-form-input id="published_from" type="date" name="published_from" required/>
+                            <x-form-input 
+                                id="published_from" 
+                                type="date" 
+                                :value="old('published_from')"
+                                name="published_from" required/>
                             <x-form-error name='published_from'/>
                         </div>
                     </x-form-field>
@@ -35,7 +64,11 @@
                     <x-form-field>
                         <x-form-label for="published_until">Published until</x-form-label>
                         <div class="mt-2">
-                            <x-form-input id="published_until" type="date" name="published_until" required/>
+                            <x-form-input 
+                                id="published_until" 
+                                type="date" 
+                                :value="old('published_until')"
+                                name="published_until" required/>
                             <x-form-error name='published_until'/>
                         </div>
                     </x-form-field>

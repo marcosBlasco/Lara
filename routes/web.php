@@ -35,10 +35,6 @@ Route::delete('/jobs/{job}', [JobController::class, 'destroy'])
         ->middleware('can:edit,job');
 
 
-
-
-
-
 Route::view('/about', 'about');
 Route::view('/contact', 'contact'); 
 

@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\UserCreated;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Employer;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 
 class RegisteredUserController extends Controller
 {
@@ -27,6 +29,9 @@ class RegisteredUserController extends Controller
         //login the user
 
         Auth::login($user);
+        Mail::to($user->email)->send(
+            new UserCreated($user)
+        );
 
         Employer::create([
             'name'    => $validated_attributes['company_name'],

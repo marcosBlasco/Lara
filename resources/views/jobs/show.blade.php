@@ -7,6 +7,9 @@
         This job pays: {{ $job['salary'] }}  per year.
     </p>
     <p>
+        Description: {{ $job['description'] }}
+    </p>
+    <p>
         Published from:
         {{ $job->published_from?->format('d/m/Y') }} to:
         {{ $job->published_until?->format('d/m/Y') }}

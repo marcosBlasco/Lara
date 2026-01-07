@@ -6,8 +6,11 @@ use Illuminate\Http\Request;
 use App\Models\Job;
 use App\Models\User;
 use App\Models\Employer;
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Gate;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\JobPosted;
 
 class JobController extends Controller
 {
@@ -27,17 +30,24 @@ class JobController extends Controller
         request()->validate([
             'title' => ['required', 'min:3'],
             'salary' => ['required'],
+            'description' => ['required'],
             'published_from' => ['required', 'date'],
             'published_until' => ['nullable', 'date', 'after:published_from'],
         ]);
-        Job::create([
+        $job = Job::create([
             'title' => request('title'),
             'salary' => request('salary'),
-            'employer_id' => Auth::user()->id,
+            'description' => request('description'),
+            'employer_id' => Auth::user()->employer->id,
             'published_from' => request('published_from'),
             'published_until' => request('published_until'),
             
         ]);
+
+        Mail::to($job->employer->user->email)->send(
+            new JobPosted($job)
+        );
+
         return redirect('/jobs');
     }
 

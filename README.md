@@ -27,6 +27,12 @@
     - Gates
     - Middleware authorization
     - Policies
+- Laravel Mailable
+    - Envelope
+    - Content
+    - sender and receiver
+- Brevo config for production 
+- Mailtrap config for dev
 
 
 

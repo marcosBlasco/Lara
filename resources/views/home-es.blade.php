@@ -53,7 +53,7 @@
     <div class="grid md:grid-cols-2 gap-10">
 
         <!-- SERVER -->
-        <div>
+        <div class="p-6">
             <h3 class="text-xl font-semibold mb-4">
                 Servidor / Infraestructura
             </h3>
@@ -70,7 +70,7 @@
         </div>
 
         <!-- LARAVEL -->
-        <div>
+        <div class="p-6">
             <h3 class="text-xl font-semibold mb-4">
                 Proyecto Laravel
             </h3>
@@ -89,11 +89,29 @@
                 <li>Formularios y protección CSRF</li>
                 <li>Validación de datos de entrada</li>
                 <li>Paginación de resultados</li>
+                <li>Autorización
+                    <ul>
+                        <li>Inline authorization</li>
+                        <li>Gates</li>
+                        <li>Middleware authorization</li>
+                        <li>Policies</li>
+                    </ul>
+                </li>
+                <li>Laravel Mailable
+                    <ul>
+                        <li>Envelope</li>
+                        <li>Content</li>
+                        <li>Sender and receiver</li>
+                        <li>.env configuration</li>
+                    </ul>
+                </li>
+
+
             </ul>
         </div>
 
         <!-- CLI -->
-        <div>
+        <div class="p-6">
             <h3 class="text-xl font-semibold mb-4">
                 Manejo de CLI / BASH
             </h3>
@@ -103,7 +121,17 @@
                 <li>Configuración de conexión SSH con la máquina virtual</li>
             </ul>
         </div>
+        <!-- Mail -->
+        <div class="p-6">
+            <h3 class="text-xl font-semibold mb-4">
+                Manejo de Mails y notificaciones
+            </h3>
 
+            <ul class="list-disc list-inside space-y-2 text-gray-600 dark:text-gray-300">
+                <li>Brevo config for production</li>
+                <li>Mailtrap config for dev</li>
+            </ul>
+        </div> 
     </div>
 </section>
 

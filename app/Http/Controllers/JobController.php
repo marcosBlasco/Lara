@@ -55,39 +55,24 @@ class JobController extends Controller
         return view('jobs.show', ['job' => $job]);
     }
 
-
-
-
-
-
-
     public function edit(Job $job){
         return view('jobs.edit', ['job' => $job]);
     }
-
-
-
-
-
 
     public function update(Job $job){
         //validate
     request()->validate([
             'title' => ['required', 'min:3'],
             'salary' => ['required'],
+            'description' => ['required'],
             'published_from' => ['required', 'date'],
             'published_until' => ['nullable', 'date', 'after:published_from'],
         ]);
-    //authorize  (I'm gonna solve this later...)
-    //update the job
-    // $job = Job::findOrFail($id); as we are using Route Model Binding this line is not necesary
-    // $job->title = request('title');
-    // $job->salary = request('salary');
-     
 
     $job->update([
         'title' => request('title'),
         'salary' => request('salary'),
+        'description' => request('description'),
         'published_from' => request('published_from'),
         'published_until' => request('published_until'),
     ]);

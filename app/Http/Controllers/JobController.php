@@ -41,7 +41,6 @@ class JobController extends Controller
             return redirect('/jobs')
             ->with('error', 'You have reached the maximum number of job postings.');
         }
-        echo "error";
 
         $job = Job::create([
             'title' => request('title'),
@@ -58,7 +57,6 @@ class JobController extends Controller
         Mail::to($job->employer->user->email)->send(
             new JobPosted($job)
         );
-        dd($jobs->count());
         return redirect('/jobs');
     }
 

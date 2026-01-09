@@ -52,10 +52,11 @@
                     <x-form-field>
                         <x-form-label for="published_from">Published from</x-form-label>
                         <div class="mt-2">
-                            <x-form-input 
+                            <x-form-input
                                 id="published_from" 
                                 type="date" 
                                 :value="old('published_from')"
+                                min="{{ \Carbon\Carbon::today()->toDateString() }}"
                                 name="published_from" required/>
                             <x-form-error name='published_from'/>
                         </div>
@@ -68,11 +69,28 @@
                                 id="published_until" 
                                 type="date" 
                                 :value="old('published_until')"
+                                min="{{ \Carbon\Carbon::today()->toDateString() }}"
                                 name="published_until" required/>
                             <x-form-error name='published_until'/>
                         </div>
                     </x-form-field>
                     
+                    <script>
+                        const publishedFrom = document.getElementById('published_from');
+                        const publishedUntil = document.getElementById('published_until');
+
+                        publishedFrom.addEventListener('change', () => {
+                            // When the user selects a date, update the minimum value of published_until
+                            publishedUntil.min = publishedFrom.value || '{{ \Carbon\Carbon::today()->toDateString() }}';
+
+                            // If the published_until date is earlier than the new published_from date, reset it
+                            if (publishedUntil.value && publishedUntil.value < publishedUntil.min) {
+                                publishedUntil.value = publishedUntil.min;
+                            }
+                        });
+                    </script>
+
+
                 </div>
             </div>
 

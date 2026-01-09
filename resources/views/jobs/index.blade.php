@@ -14,7 +14,12 @@
                 </div>
             </a>
         @endforeach
-
+        @if (session('error'))
+            <div class="alert alert-danger">
+                {{ session('error') }}
+            </div>
+        @endif
         {{ $jobs->links() }}
-</div>
+    </div>
+   
 </x-layout>

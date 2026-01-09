@@ -28,21 +28,24 @@ class RegisteredUserController extends Controller
         $user = User::create($validated_attributes);
         //login the user
 
+        $user->sendEmailVerificationNotification();
+
         Auth::login($user);
-        Mail::to($user->email)->send(
-            new UserCreated($user)
-        );
+        // Mail::to($user->email)->send(
+        //     new UserCreated($user)
+        // );
+
+        Auth::login($user);
 
         Employer::create([
             'name'    => $validated_attributes['company_name'],
             'user_id' => $user->id,
         ]);
         
-
+        return redirect()->route('verification.notice');
 
         //redirect somewhere
 
-        return redirect('jobs');
 
     }
 }

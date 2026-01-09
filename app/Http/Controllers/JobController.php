@@ -34,6 +34,15 @@ class JobController extends Controller
             'published_from' => ['required', 'date'],
             'published_until' => ['nullable', 'date', 'after:published_from'],
         ]);
+        
+        $jobsCount = Auth::user()->employer->jobs()->count();
+
+        if ($jobsCount >= 3){
+            return redirect('/jobs')
+            ->with('error', 'You have reached the maximum number of job postings.');
+        }
+        echo "error";
+
         $job = Job::create([
             'title' => request('title'),
             'salary' => request('salary'),
@@ -43,11 +52,13 @@ class JobController extends Controller
             'published_until' => request('published_until'),
             
         ]);
+        $jobs = Auth::user()->employer->jobs;
+        
 
         Mail::to($job->employer->user->email)->send(
             new JobPosted($job)
         );
-
+        dd($jobs->count());
         return redirect('/jobs');
     }
 

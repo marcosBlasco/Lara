@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const temp = data.current.temperature_2m
         const wind = data.current.wind_speed_10m
-        const humidity =
+        const humidity = data.current.relative_humidity_2m
 
 
 

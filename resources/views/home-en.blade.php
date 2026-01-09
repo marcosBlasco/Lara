@@ -89,6 +89,22 @@
                 <li>Forms and CSRF protection</li>
                 <li>Input data validation</li>
                 <li>Results pagination</li>
+                <li>Autorización
+                    <ul>
+                        <li>Inline authorization</li>
+                        <li>Gates</li>
+                        <li>Middleware authorization</li>
+                        <li>Policies</li>
+                    </ul>
+                </li>
+                <li>Laravel Mailable
+                    <ul>
+                        <li>Envelope</li>
+                        <li>Content</li>
+                        <li>Sender and receiver</li>
+                        <li>.env configuration</li>
+                    </ul>
+                </li>
             </ul>
         </div>
 

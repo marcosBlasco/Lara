@@ -32,6 +32,33 @@
   ```
 -->
 <div class="min-h-full">
+  <!-- Weather bar -->
+<!-- <div class="text-center">
+    <h2  class="bg-gray-900 text-gray-200 text-[10px] px-4 py-2 flex items-center justify-center">
+        El tiempo y la hora en Córdoba Capital
+    </h2>
+</div> -->
+
+<!-- <div id="weather-bar" class="bg-gray-900 text-gray-200 text-sm px-4 py-2 flex items-center justify-center gap-6"> -->
+
+
+<div class="pt-1 flex items-center gap-2 text-[10px] bg-gray-900 text-gray-200 leading-none justify-center">
+    El tiempo y la hora en Córdoba Capital
+    <span class="flex items-center gap-0.5">
+        🌡️ <span id="weather-temp">--</span>°C
+    </span>
+    <span class="flex items-center gap-0.5">
+        💧 <span id="weather-humidity">--</span>%
+    </span>
+    <span class="flex items-center gap-0.5">
+        🌬️ <span id="weather-wind">--</span>km/h
+    </span>
+    <span class="flex items-center gap-0.5 text-gray-400">
+        ⏱️ <span id="weather-updated">--:--</span>
+    </span>
+</div>
+
+
   <nav class="bg-gray-800 dark:bg-gray-800/50">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="flex h-16 items-center justify-between">
@@ -39,6 +66,7 @@
           <div class="shrink-0">
             <img src="https://tailwindcss.com/plus-assets/img/logos/mark.svg?color=indigo&shade=500" alt="Your Company" class="size-8" />
           </div>
+          
           <div class="hidden md:block">
             <div class="ml-10 flex items-baseline space-x-4">
               <!-- Current: "bg-gray-950/50 text-white", Default: "text-gray-300 hover:bg-white/5 hover:text-white" -->

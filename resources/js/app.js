@@ -45,6 +45,6 @@ document.addEventListener('DOMContentLoaded', () => {
     fetchWeather()
 
     // Refresco automático cada 1 minuto (60000 ms)
-    setInterval(fetchWeather, 1000)
+    setInterval(fetchWeather, 10000)
 
 })

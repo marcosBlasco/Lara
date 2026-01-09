@@ -74,7 +74,6 @@ class JobController extends Controller
             'title' => ['required', 'min:3'],
             'salary' => ['required'],
             'description' => ['required'],
-            'published_from' => ['required', 'date'],
             'published_until' => ['nullable', 'date', 'after:published_from'],
         ]);
 
@@ -82,7 +81,6 @@ class JobController extends Controller
         'title' => request('title'),
         'salary' => request('salary'),
         'description' => request('description'),
-        'published_from' => request('published_from'),
         'published_until' => request('published_until'),
     ]);
 

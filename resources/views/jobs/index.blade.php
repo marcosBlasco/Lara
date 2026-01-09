@@ -15,7 +15,7 @@
             </a>
         @endforeach
         @if (session('error'))
-            <div class="alert alert-danger">
+            <div class="text-red alert alert-danger">
                 {{ session('error') }}
             </div>
         @endif

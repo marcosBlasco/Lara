@@ -48,16 +48,23 @@
                 </div>
 
                 <x-form-field>
-                <x-form-label for="title">Description</x-form-label>
+                <x-form-label for="description">Description</x-form-label>
                     <div class="mt-2">
-                        <x-form-input 
+                        <x-form-textarea
+                            id="description"
+                            name="description"
+                            placeholder="Work type (full-time/part-time), remote or on-site, role details, required skills"
+                            :value="$job->description"
+                            required>
+                        </x-form-textarea>
+                        <!-- <x-form-input 
                             id="description" 
                             type="text" 
                             :value="$job->description" 
                             name="description" 
                             placeholder="Work type (full-time/part-time), remote or on-site, role details, required skills" 
                             required/>
-                        <x-form-error name='description'/>
+                        <x-form-error name='description'/> -->
                     </div>
                 </x-form-field>
                 

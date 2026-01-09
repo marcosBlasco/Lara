@@ -36,16 +36,16 @@
                     </x-form-field>
 
                     <x-form-field>
-                        <x-form-label for="title">Description</x-form-label>
+                        <x-form-label for="description">Description</x-form-label>
                         <div class="mt-2">
-                            <x-form-input 
-                                id="description" 
-                                type="text" 
-                                :value="old('description')" 
-                                name="description" 
-                                placeholder="Work type (full-time/part-time), remote or on-site, role details, required skills" 
-                                required />
-                            <x-form-error name='description'/>
+
+                            <x-form-textarea
+                                id="description"
+                                name="description"
+                                placeholder="Work type (full-time/part-time), remote or on-site, role details, required skills"
+                                :value="old('description')"
+                                required>
+                            </x-form-textarea>
                         </div>
                     </x-form-field>
 

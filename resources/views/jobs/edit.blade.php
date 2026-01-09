@@ -56,7 +56,7 @@
                             :value="$job->description" 
                             name="description" 
                             placeholder="Work type (full-time/part-time), remote or on-site, role details, required skills" 
-                            required />
+                            required/>
                         <x-form-error name='description'/>
                     </div>
                 </x-form-field>

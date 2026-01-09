@@ -43,7 +43,7 @@
 
 
 <div class="pt-1 flex items-center gap-2 text-[10px] bg-gray-900 text-gray-200 leading-none justify-center">
-    El tiempo y la hora en Córdoba Capital
+    Weather and local time in Córdoba (Capital)    
     <span class="flex items-center gap-0.5">
         🌡️ <span id="weather-temp">--</span>°C
     </span>

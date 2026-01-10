@@ -5,8 +5,9 @@
     </x-slot:heading>
 
     <x-sidebar :employers="$employers"/>
-
-    <h1>Glad to say hello from the Job listing web page</h1>
+    @guest
+        <h1 class="rounded-lg mb-6 block px-4 py-6">Sign up and post your job offer</h1>
+    @endguest
     <div class="space-y-4">
         @foreach ($jobs as $job)
             <a href="/jobs/{{ $job['id'] }}" class="rounded-lg hover:underline block px-4 py-6 border border-gray-200">    

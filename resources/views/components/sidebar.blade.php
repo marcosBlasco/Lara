@@ -60,7 +60,7 @@
                     <x-form-label class="block text-sm font-medium mb-1">
                         Employer
                     </x-form-label>
-                    <select name="employer" class="w-full rounded-md border-gray-300 dark:bg-gray-800">
+                    <select name="employer" value="{{ old('employer') }}" class="w-full rounded-md border-gray-300 dark:bg-gray-800">
                         <option value="">All</option>
 
                         @foreach($employers as $employer)
@@ -74,26 +74,26 @@
                         <x-form-label class="block text-sm font-medium mb-1">
                             From
                         </x-form-label>
-                        <x-form-input name="published_from" type="date" class="w-full rounded-md border-gray-300 dark:bg-gray-800"/>
+                        <x-form-input name="published_from" value="{{ request('published_from') }}" type="date" class="w-full rounded-md border-gray-300 dark:bg-gray-800"/>
                     </div>
 
                     <div>
                         <x-form-label class="block text-sm font-medium mb-1">
                             Until
                         </x-form-label>
-                        <x-form-input  name="published_until" type="date" class="w-full rounded-md border-gray-300 dark:bg-gray-800"/>
+                        <x-form-input  name="published_until" value="{{ request('published_until') }}" type="date" class="w-full rounded-md border-gray-300 dark:bg-gray-800"/>
                     </div>
                 </div>
-
+                @auth
                 <div class="flex items-center gap-2">
-                    <input type="checkbox" id="mine" name="mine" class="rounded">
+                    <input type="checkbox" id="mine" name="mine" class="rounded" @checked(request()->boolean('mine'))>
                     <label for="mine" class="text-sm">
                         My published jobs
                     </label>
                 </div>
-                
+                @endauth
                 <div class="flex items-center gap-2">
-                    <input type="checkbox" id="active_Jobs" name="active_Jobs" class="rounded">
+                    <input type="checkbox" id="active_Jobs" name="active_Jobs" class="rounded" @checked(request()->boolean('active_Jobs'))>
                     <label for="active_Jobs" class="text-sm">
                         Active Jobs
                     </label>
@@ -102,12 +102,9 @@
             </div>
 
             <!-- FOOTER -->
-            <div class="border-t border-gray-200 dark:border-gray-700 px-6 py-4 flex justify-end gap-3">
-                <button
-                    type="button"
-                    class="rounded-md border px-4 py-2 text-sm">
-                    Clean
-                </button>
+            <div class="border-t border-gray-200 dark:border-gray-700 px-6 py-4 flex justify-end gap-3">                
+
+                <a href="{{ route('jobs.index') }}" class="rounded-md border px-4 py-2 text-sm">Clean</a>
                 <x-form-button>
                     Apply filters
                 </x-form-button>

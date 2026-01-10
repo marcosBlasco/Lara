@@ -9,7 +9,7 @@ use Illuminate\Foundation\Auth\EmailVerificationRequest;
 use Illuminate\Http\Request;
 
 //home
-Route::redirect('/', '/en');
+Route::redirect('/', '/jobs');
 Route::view('/es', 'home-es');
 Route::view('/en', 'home-en');
 

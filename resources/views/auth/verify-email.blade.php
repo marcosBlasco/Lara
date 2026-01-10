@@ -6,8 +6,8 @@
     
 
     <p>
-        A verification link has been sent to your email address.
-        Please check your inbox (and spam folder).
+        We’ve sent you a verification link.
+Please check your email (and spam folder).
     </p>
 
     @if (session('status') === 'verification-link-sent')
@@ -16,7 +16,7 @@
 
     <form method="POST" action="{{ route('verification.send') }}">
         @csrf
-        <x-button class="mt-6"
->Resend email</x-button>
+        <button class="bg-gray-950/50 text-gray-300 hover:text-white rounded-md  px-3 py-2 text-sm font-medium"
+>Resend email</button>
     </form>
 </x-layout>

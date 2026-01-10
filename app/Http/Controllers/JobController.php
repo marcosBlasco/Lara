@@ -11,16 +11,58 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\JobPosted;
-
+use Carbon\Carbon;
 class JobController extends Controller
 {
-    public function index(){    
-    $jobs = Job::with('employer')->latest()->simplePaginate(2);
-    
-    return view('jobs.index', [
-        'jobs' => $jobs
-    ]);
+    public function index(Request $request)
+    {
+        $query = Job::query()
+            ->with('employer');
+        // dd($query);
+        // FILTRO: EMPLEADOR
+        if ($request->filled('employer')) {
+            $query->where('employer_id', $request->employer);
+        }
+
+        // FILTRO: FECHA DESDE
+        if ($request->filled('published_from')) {
+            $query->whereDate('created_at', '>=', $request->published_from);
+        }
+
+        // FILTRO: FECHA HASTA
+        if ($request->filled('published_until')) {
+            $query->whereDate('created_at', '<=', $request->published_until);
+        }
+
+        // FILTRO: SOLO MIS PUBLICACIONES
+        // if ($request->boolean('mine')) {
+        //     $query->where('user_id', Auth::id());
+        // }
+
+        if ($request->boolean('mine')) {
+            $query->whereHas('employer', function ($q) {
+                $q->where('user_id', Auth::id());
+            });
+        }
+        
+
+        if ($request->boolean('active_Jobs')) {
+            $today = Carbon::today();
+
+            $query->whereDate('published_from', '<=', $today)
+                ->whereDate('published_until', '>=', $today);
+        }
+
+        $jobs = $query
+            ->latest()
+            ->paginate(2)
+            ->withQueryString();
+        $employers = Employer::orderBy('name')->get();
+        
+
+        return view('jobs.index', ['jobs' => $jobs, 'employers' => $employers]);
     }
+
 
     public function create(){
         return view("jobs.create");

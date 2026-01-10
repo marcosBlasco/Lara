@@ -4,7 +4,7 @@
         Job listing page
     </x-slot:heading>
 
-    <x-sidebar/>
+    <x-sidebar :employers="$employers"/>
 
     <h1>Glad to say hello from the Job listing web page</h1>
     <div class="space-y-4">

@@ -62,8 +62,10 @@
                     </x-form-label>
                     <select name="employer" class="w-full rounded-md border-gray-300 dark:bg-gray-800">
                         <option value="">All</option>
-                        <option>Empresa A</option>
-                        <option>Empresa B</option>
+
+                        @foreach($employers as $employer)
+                            <option value="{{ $employer->id }}" @selected(request('employer') == $employer->id)>{{ $employer->name }}</option>
+                        @endforeach 
                     </select>
                 </div>
 
@@ -72,26 +74,26 @@
                         <x-form-label class="block text-sm font-medium mb-1">
                             From
                         </x-form-label>
-                        <input type="date" class="w-full rounded-md border-gray-300 dark:bg-gray-800">
+                        <x-form-input name="published_from" type="date" class="w-full rounded-md border-gray-300 dark:bg-gray-800"/>
                     </div>
 
                     <div>
                         <x-form-label class="block text-sm font-medium mb-1">
                             Until
                         </x-form-label>
-                        <input type="date" class="w-full rounded-md border-gray-300 dark:bg-gray-800">
+                        <x-form-input  name="published_until" type="date" class="w-full rounded-md border-gray-300 dark:bg-gray-800"/>
                     </div>
                 </div>
 
                 <div class="flex items-center gap-2">
-                    <input type="checkbox" id="mine" class="rounded">
+                    <input type="checkbox" id="mine" name="mine" class="rounded">
                     <label for="mine" class="text-sm">
                         My published jobs
                     </label>
                 </div>
                 
                 <div class="flex items-center gap-2">
-                    <input type="checkbox" id="activ_Jobs" class="rounded">
+                    <input type="checkbox" id="active_Jobs" name="active_Jobs" class="rounded">
                     <label for="active_Jobs" class="text-sm">
                         Active Jobs
                     </label>
@@ -101,12 +103,13 @@
 
             <!-- FOOTER -->
             <div class="border-t border-gray-200 dark:border-gray-700 px-6 py-4 flex justify-end gap-3">
-                <x-button
+                <button
+                    type="button"
                     class="rounded-md border px-4 py-2 text-sm">
-                    Limpiar
-                </x-button>
+                    Clean
+                </button>
                 <x-form-button>
-                    Aplicar filtros
+                    Apply filters
                 </x-form-button>
             </div>
 

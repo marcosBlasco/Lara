@@ -16,7 +16,7 @@
                                 id="title" 
                                 type="text" 
                                 name="title" 
-                                :value="old('title')" 
+                                value="{{ old('title') }}" 
                                 placeholder="Team Leader" required />
                             <x-form-error name='title'/>
                         </div>
@@ -28,7 +28,7 @@
                             <x-form-input 
                                 id="salary" 
                                 type="text" 
-                                :value="old('salary')" 
+                                value="{{ old('salary') }}"
                                 name="salary" 
                                 placeholder="$50.000 per year" required/>
                             <x-form-error name='salary'/>
@@ -53,7 +53,7 @@
                             <x-form-input
                                 id="published_from" 
                                 type="date" 
-                                :value="old('published_from')"
+                                value="{{ old('published_from') }}"
                                 min="{{ \Carbon\Carbon::today()->toDateString() }}"
                                 name="published_from" required/>
                             <x-form-error name='published_from'/>
@@ -66,7 +66,7 @@
                             <x-form-input 
                                 id="published_until" 
                                 type="date" 
-                                :value="old('published_until')"
+                                value="{{ old('published_until') }}"
                                 min="{{ \Carbon\Carbon::today()->toDateString() }}"
                                 name="published_until" required/>
                             <x-form-error name='published_until'/>

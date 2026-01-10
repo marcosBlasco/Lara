@@ -12,7 +12,7 @@
                     <x-form-field>
                         <x-form-label for="first_name">First Name</x-form-label>
                         <div class="mt-2">
-                            <x-form-input id="first_name" type="text" name="first_name" required />
+                            <x-form-input id="first_name" type="text" :value="old('first_name')" name="first_name" required />
                             <x-form-error name='first_name'/>
                         </div>
                     </x-form-field>
@@ -20,7 +20,7 @@
                     <x-form-field>
                         <x-form-label for="last_name">Last Name</x-form-label>
                         <div class="mt-2">
-                            <x-form-input id="last_name" type="text" name="last_name" required/>
+                            <x-form-input id="last_name" type="text" :value="old('last_name')" name="last_name" required/>
                             <x-form-error name='last_name'/>
                         </div>
                     </x-form-field>
@@ -28,7 +28,7 @@
                     <x-form-field>
                         <x-form-label for="email">Email</x-form-label>
                         <div class="mt-2">
-                            <x-form-input id="email" type="email" name="email" placeholder="jhon.doe@mail.com" required/>
+                            <x-form-input id="email" type="email" name="email" :value="old('email')" placeholder="jhon.doe@mail.com" required/>
                             <x-form-error name='email'/>
                         </div>
                     </x-form-field>
@@ -36,7 +36,7 @@
                     <x-form-field>
                         <x-form-label for="company_name">Company Name</x-form-label>
                         <div class="mt-2">
-                            <x-form-input id="company_name" placeholder="Company/Organization" type="text" name="company_name" required/>
+                            <x-form-input id="company_name" placeholder="Company/Organization" type="text" :value="old('company_name')" name="company_name" required/>
                             <x-form-error name='company_name'/>
                         </div>
                     </x-form-field>

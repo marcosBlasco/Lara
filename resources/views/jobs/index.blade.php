@@ -1,7 +1,11 @@
 <x-layout>
+    
     <x-slot:heading>
         Job listing page
     </x-slot:heading>
+
+    <x-sidebar/>
+
     <h1>Glad to say hello from the Job listing web page</h1>
     <div class="space-y-4">
         @foreach ($jobs as $job)

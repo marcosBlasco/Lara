@@ -22,6 +22,7 @@
     <body class="font-sans antialiased dark:bg-black dark:text-white/50">
     <!-- Include this script tag or install `@tailwindplus/elements` via npm: -->
 <script src="https://cdn.jsdelivr.net/npm/@tailwindplus/elements@1" type="module"></script>
+<script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
 
 <!--
   This example requires updating your template:

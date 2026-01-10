@@ -43,9 +43,7 @@
                                 id="description"
                                 name="description"
                                 placeholder="Work type (full-time/part-time), remote or on-site, role details, required skills"
-                                :value="old('description')"
-                                required>
-                            </x-form-textarea>
+                                required>{{ old('description') }}</x-form-textarea>
                         </div>
                     </x-form-field>
 

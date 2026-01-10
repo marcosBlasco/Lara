@@ -16,7 +16,7 @@ Route::view('/en', 'home-en');
 Route::resource('jobs', JobController::class);
 
 //index
-Route::get('/jobs', [JobController::class, 'index']);
+Route::get('/jobs', [JobController::class, 'index'])->name('jobs.index');;
 //create
 Route::get('/jobs/create', [JobController::class, 'create'])->middleware(['auth', 'verified']);
 //store

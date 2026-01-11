@@ -33,6 +33,7 @@
     - sender and receiver
 - Brevo config for production 
 - Mailtrap config for dev
+- Email-based user verification
 
 
 

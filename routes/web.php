@@ -10,8 +10,8 @@ use Illuminate\Http\Request;
 
 //home
 Route::redirect('/', '/jobs');
-Route::view('/es', 'home-es');
-Route::view('/en', 'home-en');
+// Route::view('/es', 'home-es');
+// Route::view('/en', 'home-en');
 
 Route::resource('jobs', JobController::class);
 

@@ -105,6 +105,7 @@
                         <li>.env configuration</li>
                     </ul>
                 </li>
+                <li>Email-based user verification</li>
             </ul>
         </div>
 

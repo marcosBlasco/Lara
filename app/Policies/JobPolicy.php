@@ -71,4 +71,10 @@ class JobPolicy
     {
         return $job->employer->user->is($user);
     }
+
+    public function contact(User $user, Job $job): bool
+    {
+        return $job->employer->user_id !== $user->id;
+    }
+
 }

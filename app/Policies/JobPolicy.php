@@ -5,6 +5,8 @@ namespace App\Policies;
 use App\Models\Job;
 use App\Models\User;
 use Illuminate\Auth\Access\Response;
+use Illuminate\Support\Facades\Auth;
+
 
 class JobPolicy
 {
@@ -72,9 +74,9 @@ class JobPolicy
         return $job->employer->user->is($user);
     }
 
-    public function contact(User $user, Job $job): bool
+    public function apply(User $user, Job $job): bool
     {
-        return $job->employer->user_id !== $user->id;
+        return ($job->employer->user_id !== $user->id) AND !$job->applications()->where('user_id', Auth::user()->id)->exists();
     }
 
 }

@@ -103,7 +103,16 @@ class JobController extends Controller
     }
 
     public function show(Job $job){
-        return view('jobs.show', ['job' => $job]);
+        // dd($job->applications);
+
+        $employers = Employer::all(); // o lo que uses para la barra
+        $userApplications = auth()->check()
+        ? Auth::user()->applications()->with('job')->latest()->get()
+        : collect();
+
+        $job->load('applications.user');
+
+        return view('jobs.show', compact('job', 'employers', 'userApplications'));
     }
 
     public function edit(Job $job){

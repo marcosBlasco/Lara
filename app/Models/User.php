@@ -6,6 +6,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use App\Models\JobApplication;
 
 
 
@@ -41,6 +42,11 @@ class User extends Authenticatable implements MustVerifyEmail
     public function employer()
     {
         return $this->hasOne(Employer::class);
+    }
+
+    public function applications()
+    {
+        return $this->hasMany(JobApplication::class);
     }
 
     /**

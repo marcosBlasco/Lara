@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\JobApplyController;
 use App\Http\Controllers\JobController;
 use App\Http\Controllers\SessionController;
 use App\Http\Controllers\RegisteredUserController;
@@ -23,7 +24,7 @@ Route::get('/jobs/create', [JobController::class, 'create'])->middleware(['auth'
 // Route::post('/jobs', [JobController::class, 'store'])->middleware('auth');
 Route::post('/jobs', [JobController::class, 'store'])->middleware(['auth', 'verified']);
 //show
-Route::get('/jobs/{job}', [JobController::class, 'show']);
+Route::get('/jobs/{job}', [JobController::class, 'show'])->name('jobs.show');
 //edit
 Route::get('/jobs/{job}/edit', [JobController::class, 'edit'])
         ->middleware(['auth', 'verified'])
@@ -36,6 +37,21 @@ Route::patch('/jobs/{job}', [JobController::class, 'update'])
 Route::delete('/jobs/{job}', [JobController::class, 'destroy'])
         ->middleware(['auth', 'verified'])
         ->middleware('can:edit,job');
+
+
+
+Route::get('/jobs/{job}/apply', [JobApplyController::class, 'create'])
+    ->middleware(['auth', 'verified'])
+    ->can('apply', 'job')
+    ->name('jobs.apply.create');
+
+Route::post('/jobs/{job}/apply', [JobApplyController::class, 'store'])
+    ->middleware(['auth', 'verified'])
+    ->can('apply', 'job')
+    ->name('jobs.apply.store');
+
+
+
 
 
 Route::view('/about', 'about');

@@ -4,6 +4,7 @@
         Job listing page
     </x-slot:heading>
 
+    <x-sideApplicationbar :employers="$employers"></x-sideApplicationbar>
     <x-sidebar :employers="$employers"/>
     @guest
         <h1 class="rounded-lg mb-6 block px-4 py-6">Sign up and post your job offer</h1>

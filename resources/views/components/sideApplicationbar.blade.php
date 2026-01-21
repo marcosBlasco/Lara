@@ -55,9 +55,10 @@
                 // Traemos todas las postulaciones del usuario actual con el job cargado
                 $applications = auth()->user()
                     ->applications()
-                    ->with('job')
+                    ->with('job.employer')
                     ->latest()
                     ->get();
+                    
             @endphp
             @forelse ($applications as $application)
                 <div class="flex justify-between items-start border rounded p-4 hover:bg-gray-100 dark:hover:bg-gray-800">

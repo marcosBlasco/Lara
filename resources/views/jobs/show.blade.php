@@ -59,24 +59,30 @@
         <p>
             <x-button href="/jobs/{{ $job -> id }}/edit" class="mt-6">Edit Job</x-button>
         </p>
-
+        <h3 class="mt-6">
+            Applicants
+        </h3>
         @foreach ($job->applications as $application)
-                        
-            <div class="font-bold text-blue-500 text-sm mt-4">
-                <p>User: {{ $application->user->first_name }} {{ $application->user->last_name }}</p>
-            </div>
-            <div>
-                <p><strong>Contact mail: </strong>: {{ $application->user->email }}</p>
-            </div>
-            <div>
-                <p>Message: {{ $application->message }}</p>
-            </div>
-            <div>
-                <p>Application time: {{ $application->created_at }}</p>
-            </div>
-                
+            <ul role="list" class="divide-y divide-white/5">
+                <li class="flex justify-between gap-x-6 py-5">
+                    <div class="flex min-w-0 gap-x-4">
+                    <img src="{{ asset('storage/' . $application->user->avatar) }}" alt="" class="size-12 flex-none rounded-full bg-gray-800 outline -outline-offset-1 outline-white/10" />
+                    <div class="min-w-0 flex-auto">
+                        <p class="text-sm/6 font-semibold text-white">{{ $application->user->first_name }} {{ $application->user->last_name }}</p>
+                        <p class="mt-1 truncate text-xs/5 text-gray-400">{{ $application->user->email }}</p>
+                    </div>
+                    </div>
+                    <div class="hidden shrink-0 sm:flex sm:flex-col sm:items-end">
+                    <p class="text-sm/6 text-white">Message: {{ $application->message }}</p>
+                    <p class="mt-1 text-xs/5 text-gray-400">Application time: {{ $application->created_at }}</p>
+                    </div>
+                </li>
+            </ul>
+
+
         @endforeach
     @endcan
+            
     @cannot('edit', $job)
         @php
     $userApplication = $job->applications()
@@ -84,16 +90,16 @@
         ->first();
 @endphp
 
-@if ($userApplication)
-    <div class="mt-6">
-        <p>You've applied on {{ $userApplication->created_at->format('d/m/Y H:i') }}</p>
-        <p>Message: {{ $userApplication->message }}</p>
-    </div>
-@else
-    <div class="mt-6 text-gray-500">
-        <p>You haven’t applied to this job yet.</p>
-    </div>
-@endif
+    @if ($userApplication)
+        <div class="mt-6">
+            <p>You've applied on {{ $userApplication->created_at->format('d/m/Y H:i') }}</p>
+            <p>Message: {{ $userApplication->message }}</p>
+        </div>
+    @else
+        <div class="mt-6 text-gray-500">
+            <p>You haven’t applied to this job yet.</p>
+        </div>
+    @endif
     @endcannot
     @can('apply', $job)
         <p>

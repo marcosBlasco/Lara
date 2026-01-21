@@ -5,18 +5,43 @@
     
     <x-sideApplicationbar :employers="$employers"></x-sideApplicationbar>
 
-    <h2 class="font-bold text-lg">{{ $job->employer->name }}: {{ $job['title'] }}</h2>
-    <p>
-        This job pays: {{ $job['salary'] }}  per year.
-    </p>
-    <p>
-        Description: {{ $job['description'] }}
-    </p>
-    <p>
-        Published from:
-        {{ $job->published_from?->format('d/m/Y') }} to:
-        {{ $job->published_until?->format('d/m/Y') }}
-    </p>
+    <div>
+    <div class="px-4 sm:px-0">
+        <h3 class="text-base/7 font-semibold text-white">Job Details</h3>
+        <p class="mt-1 max-w-2xl text-sm/6 text-gray-400">modificar campo.</p>
+    </div>
+    <div class="mt-6 border-t border-white/10">
+        <dl class="divide-y divide-white/10">
+        <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
+            <dt class="text-sm/6 font-medium text-gray-100">Employer</dt>
+            <dd class="mt-1 text-sm/6 text-gray-400 sm:col-span-2 sm:mt-0 flex items-center gap-2">
+                {{-- Nombre del employer --}}
+                {{ $job->employer->name }}
+                <x-company-logo name="{{ $job->employer->name }}" class="w-16 h-16"/>
+            </dd>
+        </div>
+        
+        <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
+            <dt class="text-sm/6 font-medium text-gray-100">Position</dt>
+            <dd class="mt-1 text-sm/6 text-gray-400 sm:col-span-2 sm:mt-0">{{ $job['title'] }}</dd>
+        </div>
+        <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
+            <dt class="text-sm/6 font-medium text-gray-100">Salary</dt>
+            <dd class="mt-1 text-sm/6 text-gray-400 sm:col-span-2 sm:mt-0">${{ $job['salary'] }}</dd>
+        </div>
+        <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
+            <dt class="text-sm/6 font-medium text-gray-100">About</dt>
+            <dd class="mt-1 text-sm/6 text-gray-400 sm:col-span-2 sm:mt-0">{{ $job['description'] }}.</dd>
+        </div>
+        <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
+            <dt class="text-sm/6 font-medium text-gray-100">Open</dt>
+            <dd class="mt-1 text-sm/6 text-gray-400 sm:col-span-2 sm:mt-0">from: {{ $job->published_from?->format('d/m/Y') }} 
+                to: {{ $job->published_until?->format('d/m/Y') }}.</dd>
+        </div>
+        
+        </dl>
+    </div>
+</div>
     @can('edit', $job)
         <p>
             <x-button href="/jobs/{{ $job -> id }}/edit" class="mt-6">Edit Job</x-button>
@@ -69,4 +94,5 @@
             {{ session('success') }}
         </div>
     @endif
+
 </x-layout>

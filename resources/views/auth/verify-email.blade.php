@@ -16,7 +16,7 @@ Please check your email (and spam folder).
 
     <form method="POST" action="{{ route('verification.send') }}">
         @csrf
-        <button class="bg-gray-950/50 text-gray-300 hover:text-white rounded-md  px-3 py-2 text-sm font-medium"
->Resend email</button>
+        <x-form-button class="bg-gray-950/50 text-gray-300 hover:text-white rounded-md  px-3 py-2 text-sm font-medium"
+>Resend email</x-form-button>
     </form>
 </x-layout>

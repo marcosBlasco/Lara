@@ -9,6 +9,6 @@
     </p>
 
     <a href="/jobs">
-        Ir a mis publicaciones
+        <x-form-button>Ir a mis publicaciones</x-form-button>
     </a>
 </x-layout>

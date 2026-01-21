@@ -17,7 +17,8 @@ class JobController extends Controller
     public function index(Request $request)
     {
         $query = Job::query()
-            ->with('employer');
+            ->with('employer.user');
+            // $jobs = Job::with('employer.user')->get();
         // dd($query);
         // FILTRO: EMPLEADOR
         if ($request->filled('employer')) {

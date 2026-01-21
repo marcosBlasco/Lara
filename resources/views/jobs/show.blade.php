@@ -59,6 +59,10 @@
         <p>
             <x-button href="/jobs/{{ $job -> id }}/edit" class="mt-6">Edit Job</x-button>
         </p>
+
+
+<hr class="my-4 border-white/20">
+
         <h3 class="mt-6">
             Applicants
         </h3>

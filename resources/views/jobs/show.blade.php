@@ -17,9 +17,22 @@
             <dd class="mt-1 text-sm/6 text-gray-400 sm:col-span-2 sm:mt-0 flex items-center gap-2">
                 {{-- Nombre del employer --}}
                 {{ $job->employer->name }}
-                <x-company-logo name="{{ $job->employer->name }}" class="w-16 h-16"/>
+                {{-- Imagen del employer --}}
+                @if($job->employer->logo)
+                    <img src="{{ asset('storage/' . $job->employer->logo) }}"
+                        alt="{{ $job->employer->name }} logo"
+                        class="w-8 h-8 rounded-full object-cover">
+                @else
+                    {{-- Fallback: iniciales o default svg/avatar --}}
+                    <x-company-logo name="{{ $job->employer->name }}" class="w-16 h-16"/>
+                @endif
             </dd>
         </div>
+
+
+        
+
+
         
         <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
             <dt class="text-sm/6 font-medium text-gray-100">Position</dt>

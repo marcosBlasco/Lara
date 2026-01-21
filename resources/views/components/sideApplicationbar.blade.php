@@ -60,13 +60,33 @@
                     ->get();
             @endphp
             @forelse ($applications as $application)
-                <div class="border rounded p-4 hover:bg-gray-100 dark:hover:bg-gray-800">
-                    <a href="{{ route('jobs.show', $application->job) }}" class="font-medium text-blue-600 dark:text-blue-400 hover:underline">
-                        {{ $application->job->title }}
-                    </a>
-                    <p class="text-sm text-gray-500 dark:text-gray-400">
-                        Applied on {{ $application->created_at->format('d/m/Y') }}
-                    </p>
+                <div class="flex justify-between items-start border rounded p-4 hover:bg-gray-100 dark:hover:bg-gray-800">
+                    
+                    <div class="flex flex-col">
+                        <a href="{{ route('jobs.show', $application->job) }}" class="font-medium text-blue-600 dark:text-blue-400 hover:underline">
+                            {{ $application->job->title }}
+                        </a>
+                    
+                    
+
+                        <p class="text-sm text-gray-500 dark:text-gray-400 flex m-4 items-center">
+                            Applied on {{ $application->created_at->format('d/m/Y') }}
+                        </p>
+                    </div>
+                    <div class="flex items-start">
+                        <dd class="mt-1 text-sm/6 text-gray-400 sm:col-span-2 sm:mt-0 flex items-center gap-2">
+                            {{-- Imagen del employer --}}
+                            @if($application->job->employer->logo)
+                                <img src="{{ asset('storage/' . $application->job->employer->logo) }}"
+                                    alt="{{ $application->job->employer->name }} logo"
+                                    class="flex items-start gap-2 w-8 h-8 rounded-full object-cover">
+                            @else
+                                {{-- Fallback: iniciales o default svg/avatar --}}
+                                <x-company-logo name="{{ $application->job->employer->name }}" class="w-16 h-16"/>
+                            @endif
+                        </dd>
+                    </div>
+                    
                 </div>
             @empty
                 <p class="text-gray-500 dark:text-gray-400">You haven’t applied to any jobs yet.</p>

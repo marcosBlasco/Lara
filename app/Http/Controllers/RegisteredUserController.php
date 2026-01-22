@@ -17,15 +17,6 @@ class RegisteredUserController extends Controller
     }
 
     public function store(){
-        // //validate
-        // $validated_attributes = request()->validate([
-        //     'first_name'    => ['required'],
-        //     'last_name'     => ['required'],
-        //     'email'         => ['required', 'email', 'unique:users', 'max:254'],
-        //     'company_name'         => ['required', 'min:3'],
-        //     'password' => ['required', 'string', 'min:8', 'confirmed',],
-        // ]);
-
         $validated_attributes = request()->validate([
             // User
             'first_name' => ['required', 'string', 'max:255'],
@@ -42,15 +33,6 @@ class RegisteredUserController extends Controller
         ]);
 
 
-
-
-
-        // dd($validated_attributes);
-        
-        
-
-
-
         /* ------------------------
         USER
         ------------------------ */
@@ -63,10 +45,6 @@ class RegisteredUserController extends Controller
             $avatarPath = 'avatars/users/default-user.png';
         }
 
-
-        // $avatarPath = request()->hasFile('avatar')
-        //     ? request()->file('avatar')->store('avatars/users', 'public')
-        //     : 'avatars/users/default-user.png';
         $user = User::create([
             'first_name' => $validated_attributes['first_name'],
             'last_name'  => $validated_attributes['last_name'],
@@ -75,22 +53,9 @@ class RegisteredUserController extends Controller
             'avatar'     => $avatarPath,
         ]);
 
-        //create the user
-        // $user = User::create($validated_attributes);
-        //login the user
-
         $user->sendEmailVerificationNotification();
 
         Auth::login($user);
-
-
-
-
-        // Employer::create([
-        //     'name'    => $validated_attributes['company_name'],
-        //     'user_id' => $user->id,
-        // ]);
-        
 
 
         /* ------------------------

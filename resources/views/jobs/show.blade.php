@@ -15,17 +15,29 @@
         <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
             <dt class="text-sm/6 font-medium text-gray-100">Employer</dt>
             <dd class="mt-1 text-sm/6 text-gray-400 sm:col-span-2 sm:mt-0 flex items-center gap-2">
-                {{-- Nombre del employer --}}
-                {{ $job->employer->name }}
-                {{-- Imagen del employer --}}
-                @if($job->employer->logo)
-                    <img src="{{ asset('storage/' . $job->employer->logo) }}"
-                        alt="{{ $job->employer->name }} logo"
-                        class="w-8 h-8 rounded-full object-cover">
-                @else
-                    {{-- Fallback: iniciales o default svg/avatar --}}
-                    <x-company-logo name="{{ $job->employer->name }}" class="w-16 h-16"/>
-                @endif
+                <a href="/employers/{{ $job->employer->name }}" 
+                class=" border border-transparent
+                        hover:border-gray-300
+                        rounded-2xl
+                        transition
+                        duration-300 
+                        rounded-lg mt-1 
+                        text-sm/6 
+                        text-gray-400 
+                        sm:col-span-2 
+                        sm:mt-0 flex items-center gap-2">
+                    {{-- Nombre del employer --}}
+                    {{ $job->employer->name }}
+                    {{-- Imagen del employer --}}
+                    @if($job->employer->logo)
+                        <img src="{{ asset('storage/' . $job->employer->logo) }}"
+                            alt="{{ $job->employer->name }} logo"
+                            class="w-8 h-8 rounded-full object-cover">
+                    @else
+                        {{-- Fallback: iniciales o default svg/avatar --}}
+                        <x-company-logo name="{{ $job->employer->name }}" class="w-16 h-16"/>
+                    @endif
+                </a>
             </dd>
         </div>
 
@@ -68,22 +80,28 @@
         </h3>
         @foreach ($job->applications as $application)
             <ul role="list" class="divide-y divide-white/5">
-                <li class="flex justify-between gap-x-6 py-5">
-                    <div class="flex min-w-0 gap-x-4">
-                    <img src="{{ asset('storage/' . $application->user->avatar) }}" alt="" class="size-12 flex-none rounded-full bg-gray-800 outline -outline-offset-1 outline-white/10" />
-                    <div class="min-w-0 flex-auto">
-                        <p class="text-sm/6 font-semibold text-white">{{ $application->user->first_name }} {{ $application->user->last_name }}</p>
-                        <p class="mt-1 truncate text-xs/5 text-gray-400">{{ $application->user->email }}</p>
-                    </div>
-                    </div>
-                    <div class="hidden shrink-0 sm:flex sm:flex-col sm:items-end">
-                    <p class="text-sm/6 text-white">Message: {{ $application->message }}</p>
-                    <p class="mt-1 text-xs/5 text-gray-400">Application time: {{ $application->created_at }}</p>
-                    </div>
-                </li>
-            </ul>
+    <li class="flex flex-col sm:flex-row justify-between gap-x-6 py-5">
 
+        <!-- Bloque izquierdo: avatar + user info -->
+        <div class="flex flex-col sm:flex-row min-w-0 gap-x-4">
+            <img src="{{ asset('storage/' . $application->user->avatar) }}" 
+                 alt="{{ $application->user->first_name }} avatar"
+                 class="w-12 h-12 flex-none rounded-full bg-gray-800 ring-1 ring-white/10 mb-2 sm:mb-0" />
+            
+            <div class="min-w-0 flex-auto">
+                <p class="text-sm/6 font-semibold text-white">{{ $application->user->first_name }} {{ $application->user->last_name }}</p>
+                <p class="mt-1 truncate text-xs/5 text-gray-400">{{ $application->user->email }}</p>
+            </div>
+        </div>
 
+        <!-- Bloque derecho: message + created_at -->
+        <div class="flex flex-col sm:items-end mt-2 sm:mt-0">
+            <p class="text-sm/6 text-white">Message: {{ $application->message }}</p>
+            <p class="mt-1 text-xs/5 text-gray-400">Application time: {{ $application->created_at->format('d/m/Y H:i') }}</p>
+        </div>
+
+    </li>
+</ul>
         @endforeach
     @endcan
             

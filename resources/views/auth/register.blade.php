@@ -10,7 +10,7 @@
             <p class="mt-1 text-sm/6 text-gray-400">We just need some details here.</p>
                 <div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
                     <x-form-field>
-                        <x-form-label for="first_name">First Name</x-form-label>
+                        <x-form-label for="first_name">First Name*</x-form-label>
                         <div class="mt-2">
                             <x-form-input id="first_name" type="text" :value="old('first_name')" name="first_name" required />
                             <x-form-error name='first_name'/>
@@ -18,7 +18,7 @@
                     </x-form-field>
 
                     <x-form-field>
-                        <x-form-label for="last_name">Last Name</x-form-label>
+                        <x-form-label for="last_name">Last Name*</x-form-label>
                         <div class="mt-2">
                             <x-form-input id="last_name" type="text" :value="old('last_name')" name="last_name" required/>
                             <x-form-error name='last_name'/>
@@ -26,7 +26,7 @@
                     </x-form-field>
 
                     <x-form-field>
-                        <x-form-label for="email">Email</x-form-label>
+                        <x-form-label for="email">Email*</x-form-label>
                         <div class="mt-2">
                             <x-form-input id="email" type="email" name="email" :value="old('email')" placeholder="jhon.doe@mail.com" required/>
                             <x-form-error name='email'/>

@@ -138,7 +138,7 @@
                         <x-form-field class="">
                             <x-form-label for="company_name">Company Name</x-form-label>
                             <div class="mt-2">
-                                <x-form-input id="company_name" placeholder="Company/Organization" type="text" :value="old('company_name', $user->company_name)" name="company_name"/>
+                                <x-form-input id="company_name" placeholder="Company/Organization" type="text" :value="old('company_name', $user->employer->name)" name="company_name"/>
                                 <x-form-error name='company_name'/>
                             </div>
                         </x-form-field>

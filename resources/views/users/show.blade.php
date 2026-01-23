@@ -106,19 +106,19 @@
                             <!-- Logo -->
                             <div class="flex items-start mb-2 sm:mb-0">
                                 <dd class="mt-1 text-sm/6 text-gray-400 flex items-center gap-2">
-                                    @if($job->employer->logo)
-                                        <img src="{{ asset('storage/' . $job->employer->logo) }}"
-                                            alt="{{ $job->employer->name }} logo"
+                                    @if($user->employer->logo)
+                                        <img src="{{ asset('storage/' . $user->employer->logo) }}"
+                                            alt="{{ $user->employer->name }} logo"
                                             class="w-8 h-8 rounded-full object-cover">
                                     @else
-                                        <x-company-logo name="{{ $job->employer->name }}" class="w-16 h-16"/>
+                                        <x-company-logo name="{{ $user->employer->name }}" class="w-16 h-16"/>
                                     @endif
                                 </dd>
                             </div>
 
                             <!-- Nombre del employer + título del job -->
                             <div class="min-w-0 flex-auto">
-                                <p class="text-sm font-semibold text-white">{{ $job->employer->name }}</p>
+                                <p class="text-sm font-semibold text-white">{{ $user->employer->name }}</p>
                                 <p class="mt-1 truncate text-xs/5 text-gray-400">{{ $job['title'] }}</p>
                             </div>
                         </div>

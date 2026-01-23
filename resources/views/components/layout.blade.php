@@ -136,7 +136,7 @@
         </div>
         <div class="-mr-2 flex md:hidden">
           @auth
-            <x-nav-link href="/user"  id="mobile-userlink" :active="false">User: {{ request()->user()->first_name }}, {{ request()->user()->last_name }}&nbsp;&nbsp;&nbsp; Co.: {{ auth()->user()->employer->name }}</x-nav-link>
+            <x-nav-link href="/users/{{ request()->user()->id }}"  id="mobile-userlink" :active="false">User: {{ request()->user()->first_name }}, {{ request()->user()->last_name }}&nbsp;&nbsp;&nbsp; Co.: {{ auth()->user()->employer->name }}</x-nav-link>
           @endauth
           <!-- Mobile menu button -->
           <button type="button" command="--toggle" commandfor="mobile-menu" for="mobile-menu" class="relative inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-white/5 hover:text-white focus:outline-2 focus:outline-offset-2 focus:outline-indigo-500">

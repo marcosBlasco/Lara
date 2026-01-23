@@ -95,7 +95,7 @@
           <div class="ml-4 flex items-center md:ml-6">
 
             @auth
-              <x-nav-link href="/user"  id="userlink" :active="false">User: {{ request()->user()->first_name }}, {{ request()->user()->last_name }}&nbsp;&nbsp;&nbsp; Co.: {{ auth()->user()->employer->name }}</x-nav-link>
+              <x-nav-link href="/users/{{ request()->user()->id }}"  id="userlink" :active="false">User: {{ request()->user()->first_name }}, {{ request()->user()->last_name }}&nbsp;&nbsp;&nbsp; Co.: {{ auth()->user()->employer->name }}</x-nav-link>
               
             @endauth
 

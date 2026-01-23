@@ -6,6 +6,7 @@ use App\Mail\UserCreated;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Employer;
+use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Hash;
@@ -75,6 +76,7 @@ class RegisteredUserController extends Controller
         $employer = Employer::create([
             'user_id'      => $user->id,
             'name'         => $companyName,
+            'slug'        => Str::slug($companyName),
             'description'  => $validated_attributes['description'] ?? null,
             'website'      => $validated_attributes['website'] ?? null,
             'logo'         => $companyLogoPath, // null → SVG dinámico

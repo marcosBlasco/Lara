@@ -4,6 +4,8 @@ use App\Http\Controllers\JobApplyController;
 use App\Http\Controllers\JobController;
 use App\Http\Controllers\SessionController;
 use App\Http\Controllers\RegisteredUserController;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\EmployersController;
 use App\Models\Job;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
@@ -89,3 +91,22 @@ Route::post('/email/verification-notification', function (Request $request) {
 Route::get('/email/verificado', function () {
     return view('auth.verified');
 })->middleware('auth')->name('verification.success');
+
+
+
+Route::get('/users/{user}', [UserController::class, 'show'])
+    ->name('users.show');
+
+
+Route::get('/users/{user}/edit', [UserController::class, 'edit'])
+    ->name('users.edit');
+
+Route::patch('/users/{user}', [UserController::class, 'update'])
+    ->name('users.update');
+
+
+
+    
+
+Route::get('/employers/{employer}', [EmployersController::class, 'show'])
+    ->name('employers.show');

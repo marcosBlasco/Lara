@@ -9,14 +9,36 @@
         </div>
         <div class="mt-6 border-t border-white/10">
             <dl class="divide-y divide-white/10">
-            <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
-                <dt class="text-sm/6 font-medium text-gray-100">Employer</dt>
-                <dd class="mt-1 text-sm/6 text-gray-400 sm:col-span-2 sm:mt-0 flex items-center gap-2">
+            <div class="mt-6 border-t border-white/10">
+        <dl class="divide-y divide-white/10">
+        <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
+            <dt class="text-sm/6 font-medium text-gray-100">Employer</dt>
+            <dd class="mt-1 text-sm/6 text-gray-400 sm:col-span-2 sm:mt-0 flex items-center gap-2">
+                <a href="/employers/{{ $job->employer->slug }}" 
+                class=" border border-transparent
+                        hover:border-gray-300
+                        rounded-2xl
+                        transition
+                        duration-300 
+                        rounded-lg mt-1 
+                        text-sm/6 
+                        text-gray-400 
+                        sm:col-span-2 
+                        sm:mt-0 flex items-center gap-2">
                     {{-- Nombre del employer --}}
                     {{ $job->employer->name }}
-                    <x-company-logo name="{{ $job->employer->name }}" class="w-16 h-16"/>
-                </dd>
-            </div>
+                    {{-- Imagen del employer --}}
+                    @if($job->employer->logo)
+                        <img src="{{ asset('storage/' . $job->employer->logo) }}"
+                            alt="{{ $job->employer->name }} logo"
+                            class="w-8 h-8 rounded-full object-cover">
+                    @else
+                        {{-- Fallback: iniciales o default svg/avatar --}}
+                        <x-company-logo name="{{ $job->employer->name }}" class="w-16 h-16"/>
+                    @endif
+                </a>
+            </dd>
+        </div>
             
             <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
                 <dt class="text-sm/6 font-medium text-gray-100">Position</dt>

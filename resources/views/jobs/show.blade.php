@@ -84,7 +84,7 @@
 
                     <!-- Bloque izquierdo: avatar + user info -->
                     <div class="flex flex-col sm:flex-row min-w-0 gap-x-4">
-                        <img src="{{ asset('storage/' . $application->user->avatar) }}" 
+                        <img src="{{ $application->user->avatar_url }}" 
                             alt="{{ $application->user->first_name }} avatar"
                             class="w-12 h-12 flex-none rounded-full bg-gray-800 ring-1 ring-white/10 mb-2 sm:mb-0" />
                         

@@ -44,7 +44,7 @@ class UserController extends Controller
             $avatarPath = request()->file('avatar')
                 ->store('avatars/users', 'public');
         } else {
-            $avatarPath = 'avatars/users/default-user.png';
+            $avatarPath = null;
         }
         
         

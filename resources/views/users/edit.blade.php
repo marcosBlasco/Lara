@@ -59,7 +59,7 @@
                         <img
                             x-show="!preview"
                             
-                            src="{{ $user->avatar ? asset('storage/'.$user->avatar) : asset('storage/avatars/users/default-user.png') }}"
+                            src="{{ $user->avatar_url }}"
                             
                             
                             

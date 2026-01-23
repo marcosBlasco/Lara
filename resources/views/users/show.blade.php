@@ -27,13 +27,10 @@
                             {{-- Nombre del employer --}}
                             {{ $user->first_name }} {{ $user->last_name }}
                             {{-- Imagen del employer --}}
-                            @if($user->avatar)
-                                <img src="{{ asset('storage/' . $user->avatar) }}"
+
+                                <img src="{{ $user->avatar_url }}"
                                     alt="{{ $user->first_name }} {{ $user->last_name }}"
                                     class="w-8 h-8 rounded-full object-cover">
-                            @else
-                                {{-- Fallback: iniciales o default svg/avatar --}}
-                            @endif
                         </a>
                     </dd>
                 </div>

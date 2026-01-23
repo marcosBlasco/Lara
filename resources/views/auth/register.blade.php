@@ -57,7 +57,7 @@
                         <!-- Imagen por defecto -->
                         <img
                             x-show="!preview"
-                            src="{{ asset('storage/avatars/users/default-user.png') }}"
+                            src="{{ asset('images/default-user.png') }}"
                             class="absolute inset-0 w-full h-full object-cover opacity-70"
                         >
                         <!-- Botón eliminar -->

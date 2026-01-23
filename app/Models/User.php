@@ -51,6 +51,14 @@ class User extends Authenticatable implements MustVerifyEmail
         return $this->hasMany(JobApplication::class);
     }
 
+    public function getAvatarUrlAttribute(): string
+    {
+        if ($this->avatar) {
+            return asset('storage/' . $this->avatar);
+        }
+
+        return asset('images/default-user.png');
+    }
     /**
      * Get the attributes that should be cast.
      *

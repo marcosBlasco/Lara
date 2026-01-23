@@ -95,18 +95,21 @@ Route::get('/email/verificado', function () {
 
 
 Route::get('/users/{user}', [UserController::class, 'show'])
-    ->name('users.show');
+    ->name('users.show')
+    ->middleware(['auth', 'verified']);
 
 
 Route::get('/users/{user}/edit', [UserController::class, 'edit'])
-    ->name('users.edit');
+    ->name('users.edit')
+    ->middleware(['auth', 'verified']);
 
 Route::patch('/users/{user}', [UserController::class, 'update'])
-    ->name('users.update');
+    ->name('users.update')
+    ->middleware(['auth', 'verified']);
 
 
 
-    
+
 
 Route::get('/employers/{employer}', [EmployersController::class, 'show'])
     ->name('employers.show');

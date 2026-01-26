@@ -6,7 +6,6 @@
     <div>
         <div class="px-4 sm:px-0">
             <h3 class="text-base/7 font-semibold text-white">Employer Details</h3>
-            <p class="mt-1 max-w-2xl text-sm/6 text-gray-400">modificar campo.</p>
         </div>
         <div class="mt-6 border-t border-white/10">
             <dl class="divide-y divide-white/10">

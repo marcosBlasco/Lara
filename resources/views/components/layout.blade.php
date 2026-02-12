@@ -43,7 +43,7 @@
 <!-- <div id="weather-bar" class="bg-gray-900 text-gray-200 text-sm px-4 py-2 flex items-center justify-center gap-6"> -->
 
 
-<div class="pt-1 flex items-center gap-2 text-[10px] bg-gray-900 text-gray-200 leading-none justify-center">
+<!-- <div class="pt-1 flex items-center gap-2 text-[10px] bg-gray-900 text-gray-200 leading-none justify-center">
     Weather and local time in Córdoba (Capital)    
     <span class="flex items-center gap-0.5">
         🌡️ <span id="weather-temp">--</span>°C
@@ -57,7 +57,7 @@
     <span class="flex items-center gap-0.5 text-gray-400">
         ⏱️ <span id="weather-updated">--:--</span>
     </span>
-</div>
+</div> -->
 
 
   <nav class="bg-gray-800 dark:bg-gray-800/50">
